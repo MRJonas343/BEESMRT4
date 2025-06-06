@@ -15,3 +15,45 @@
   src: url("/fonts/Oswald.woff2") format("woff2");
   font-display: swap;
 }
+
+/* 3D Text Effects */
+.text-3d-h1 {
+  text-shadow:
+    1px 1px 0px #000,
+    2px 2px 0px #000,
+    3px 3px 0px #000,
+    4px 4px 0px #000,
+    5px 5px 0px #000,
+    6px 6px 10px rgba(0,0,0,0.4);
+  transform: perspective(500px) rotateX(15deg);
+}
+
+.text-3d-h2 {
+  text-shadow:
+    1px 1px 0px #000,
+    2px 2px 0px #000,
+    3px 3px 0px #000,
+    4px 4px 0px #000,
+    5px 5px 8px rgba(0,0,0,0.3);
+  transform: perspective(400px) rotateX(12deg);
+}
+
+/* Dark theme variations */
+.dark .text-3d-h1 {
+  text-shadow:
+    1px 1px 0px #333,
+    2px 2px 0px #333,
+    3px 3px 0px #333,
+    4px 4px 0px #333,
+    5px 5px 0px #333,
+    6px 6px 10px rgba(255,255,255,0.1);
+}
+
+.dark .text-3d-h2 {
+  text-shadow:
+    1px 1px 0px #333,
+    2px 2px 0px #333,
+    3px 3px 0px #333,
+    4px 4px 0px #333,
+    5px 5px 8px rgba(255,255,255,0.1);
+}

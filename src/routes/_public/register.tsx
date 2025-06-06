@@ -1,9 +1,8 @@
 import { createFileRoute, redirect } from "@tanstack/react-router";
-import { Button } from "@heroui/react";
+import { Button, Link } from "@heroui/react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { signUpSchema, type SignUpFormData } from "@/schemas";
-import { useForm } from "react-hook-form";
-import type { SubmitHandler } from "react-hook-form";
+import { useForm, type SubmitHandler } from "react-hook-form";
 import { TextInput } from "@/components";
 import { MdEmail, MdPerson } from "react-icons/md";
 import { useSignUpUser } from "@/hooks";
@@ -59,6 +58,9 @@ function RouteComponent() {
 				<Button isLoading={mutation.isPending} type="submit">
 					Sign Up
 				</Button>
+				<p className="text-sm text-gray-500">
+					Already have an account? <Link href="/login">Login</Link>
+				</p>
 			</form>
 		</div>
 	);
