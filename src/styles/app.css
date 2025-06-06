@@ -1,0 +1,17 @@
+@import "tailwindcss" source("../");
+@plugin '../../hero.ts';
+
+@source '../../node_modules/@heroui/theme/dist/**/*.{js,ts,jsx,tsx}';
+@custom-variant dark (&:is(.dark *));
+
+@font-face {
+  font-family: "Bebas Neue";
+  src: url("/fonts/BebasNeue.woff2") format("woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Oswald";
+  src: url("/fonts/Oswald.woff2") format("woff2");
+  font-display: swap;
+}
