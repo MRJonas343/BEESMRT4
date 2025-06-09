@@ -20,7 +20,7 @@ export const useAuthUser = () => {
 					const session = await fetchSessionFn();
 					queryClient.setQueryData(["user"], session);
 					toast("Welcome back", "You are now logged in", "success");
-					navigate({ to: "/dashboard" });
+					navigate({ to: "/GameMenu" });
 				},
 			});
 			return response;

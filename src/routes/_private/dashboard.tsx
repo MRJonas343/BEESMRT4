@@ -18,9 +18,4 @@ function RouteComponent() {
 
 export const Route = createFileRoute("/_private/dashboard")({
 	component: RouteComponent,
-	beforeLoad: async ({ context: { user } }) => {
-		if (!user) {
-			throw redirect({ to: "/login" });
-		}
-	},
 });

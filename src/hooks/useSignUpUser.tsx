@@ -23,7 +23,7 @@ export const useSignUpUser = () => {
 						"You are now a member of the beehive",
 						"success",
 					);
-					navigate({ to: "/login" });
+					navigate({ to: "/GameMenu" });
 				},
 			});
 		},

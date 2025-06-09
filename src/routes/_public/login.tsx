@@ -11,16 +11,14 @@ import {
 } from "@heroui/react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { loginSchema, type LoginFormData } from "@/schemas";
-import { useForm } from "react-hook-form";
-import type { SubmitHandler } from "react-hook-form";
+import { useForm, type SubmitHandler } from "react-hook-form";
+import { Route as GameMenuRoute } from "@/routes/_private/GameMenu";
 import { useAuthUser } from "@/hooks";
-import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { FaEye, FaEyeSlash, FaMicrosoft } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
-import { FaMicrosoft } from "react-icons/fa";
 import { useState } from "react";
-import { MainLayout } from "@/components";
+import { MainLayout, Text } from "@/components";
 import logo from "@/assets/logo_white.webp";
-import { Text } from "@/components/stateless/Text";
 
 function RouteComponent() {
 	const [isVisible, setIsVisible] = useState(false);
@@ -216,7 +214,7 @@ export const Route = createFileRoute("/_public/login")({
 	component: RouteComponent,
 	beforeLoad: async ({ context: { user } }) => {
 		if (user) {
-			throw redirect({ to: "/dashboard" });
+			throw redirect({ to: GameMenuRoute.to });
 		}
 	},
 });

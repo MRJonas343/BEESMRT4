@@ -70,7 +70,7 @@ export const Route = createFileRoute("/_public/register")({
 	component: RouteComponent,
 	beforeLoad: async ({ context: { user } }) => {
 		if (user) {
-			throw redirect({ to: "/dashboard" });
+			throw redirect({ to: "/GameMenu" });
 		}
 	},
 });
