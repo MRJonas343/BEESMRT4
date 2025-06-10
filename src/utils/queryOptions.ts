@@ -14,5 +14,4 @@ export const gameQueryOptions = (game: string) =>
 			);
 			return levels.data;
 		},
-		staleTime: 1000 * 60,
 	});
