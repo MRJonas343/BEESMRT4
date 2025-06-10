@@ -19,9 +19,9 @@ function RouteComponent() {
 		{
 			name: "Hangman Game",
 			description: "A game of hangman",
-			game: "hangman",
+			game: "HangmanGame",
 			image: hangmanGame,
-			link: "/game/configs/hangman",
+			link: "/game/configs/HangmanGame",
 		},
 	];
 
