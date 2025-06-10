@@ -3,21 +3,46 @@ import { Route as GameMenuRoute } from "@/routes/_private/GameMenu";
 import { useSuspenseQuery } from "@tanstack/react-query";
 import { GameModesList } from "@/constants";
 import { gameQueryOptions } from "@/utils";
-import { Suspense } from "react";
+import { Suspense, useState } from "react";
+import {
+	Header,
+	GameModesSection,
+	EnglishLevelsSection,
+	TrophyCategoriesSection,
+} from "@/components/MemoryGame";
 
 function RouteComponent() {
 	const { game } = useParams({ from: "/game/configs/$game" });
 	const { data } = useSuspenseQuery(gameQueryOptions(game));
+	const gameModes = GameModesList[game];
+
+	const [selectedEnglishLevel, setSelectedEnglishLevel] = useState<
+		string | null
+	>(null);
+
+	const englishLevels = ["A1", "A2", "B1", "B2", "C1", "C2"];
+
+	const filteredData = selectedEnglishLevel
+		? data.filter((level) => level.englishLevel === selectedEnglishLevel)
+		: data;
 
 	return (
-		<div>
-			<h1>Game Configs</h1>
-			<div className="flex flex-col gap-4">
-				<div className="flex flex-col gap-2">
-					<h2>Game Modes</h2>
+		<div className="min-h-screen bg-gradient-to-b from-purple-600 via-purple-700 to-purple-800 text-white">
+			<Header gameName={game} />
 
-					<pre>{JSON.stringify(data, null, 2)}</pre>
-				</div>
+			<div className="max-w-4xl mx-auto px-6 pb-8">
+				<GameModesSection gameModes={gameModes} />
+
+				<EnglishLevelsSection
+					englishLevels={englishLevels}
+					selectedEnglishLevel={selectedEnglishLevel}
+					onLevelSelect={setSelectedEnglishLevel}
+				/>
+
+				<TrophyCategoriesSection
+					filteredData={filteredData}
+					selectedEnglishLevel={selectedEnglishLevel}
+				/>
 			</div>
 		</div>
 	);
