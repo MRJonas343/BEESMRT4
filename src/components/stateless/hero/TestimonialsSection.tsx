@@ -2,7 +2,7 @@ import { testimonials } from "@/constants";
 
 export const TestimonialsSection = () => {
 	return (
-		<section id="testimonials" className="py-20 bg-featured relative">
+		<section id="testimonials" className="py-20 pb-32 bg-featured relative">
 			<div className="container mx-auto px-4">
 				<div className="text-center mb-16">
 					<div className="inline-flex items-center space-x-3 mb-4">
@@ -91,6 +91,21 @@ export const TestimonialsSection = () => {
 			<div className="absolute top-20 left-10 text-2xl buzz opacity-20">🐝</div>
 			<div className="absolute bottom-20 right-20 text-2xl wiggle opacity-20">
 				🐝
+			</div>
+
+			{/* Wave transition to next section */}
+			<div className="absolute bottom-0 left-0 right-0">
+				<svg
+					viewBox="0 0 1200 200"
+					preserveAspectRatio="none"
+					className="w-full h-32"
+				>
+					<title>Wave transition to next section</title>
+					<path
+						d="M0,100 C300,200 900,0 1200,100 L1200,200 L0,200 Z"
+						fill="hsl(var(--background))"
+					/>
+				</svg>
 			</div>
 		</section>
 	);

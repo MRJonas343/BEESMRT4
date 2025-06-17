@@ -49,27 +49,21 @@ export const WhyBeeSmrt = () => {
 						<div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
 							<div className="flex flex-col items-center space-y-2">
 								<div className="text-4xl">🎮</div>
-								<span className="font-bebas font-semibold text-honey">
-									Fun Games
-								</span>
+								<span className="font-['Oswald']  text-buzz">Fun Games</span>
 							</div>
 							<div className="flex flex-col items-center space-y-2">
 								<div className="text-4xl">🏆</div>
-								<span className="font-bebas font-semibold text-buzz">
-									Compete
-								</span>
+								<span className="font-['Oswald']  text-buzz">Compete</span>
 							</div>
 							<div className="flex flex-col items-center space-y-2">
 								<div className="text-4xl">🎯</div>
-								<span className="font-bebas font-semibold text-amber">
+								<span className="font-['Oswald']  text-amber">
 									Personalized
 								</span>
 							</div>
 							<div className="flex flex-col items-center space-y-2">
 								<div className="text-4xl">🔒</div>
-								<span className="font-bebas font-semibold text-honey">
-									Secure
-								</span>
+								<span className="font-['Oswald']  text-honey">Secure</span>
 							</div>
 						</div>
 					</div>

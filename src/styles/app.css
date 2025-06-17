@@ -287,6 +287,18 @@
 		border-color: hsl(var(--honey));
 	}
 
+	.bg-hive {
+		background-color: hsl(var(--hive));
+	}
+
+	.text-nectar {
+		color: hsl(var(--nectar));
+	}
+
+	.text-honey {
+		color: hsl(var(--honey));
+	}
+
 
 
 }

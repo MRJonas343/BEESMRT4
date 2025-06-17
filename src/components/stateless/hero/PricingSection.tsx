@@ -2,8 +2,8 @@ import { MainButton, SecondaryButton } from "@/components";
 
 export const PricingSection = () => {
 	return (
-		<section id="pricing" className="py-20 bg-background relative">
-			<div className="container mx-auto px-4">
+		<section id="pricing" className="pt-14 pb-20 bg-background relative">
+			<div className="container mx-auto px-4 pb-16">
 				<div className="text-center mb-16">
 					<div className="inline-flex items-center space-x-3 mb-4">
 						<span className="text-4xl">💸</span>
@@ -15,7 +15,7 @@ export const PricingSection = () => {
 				</div>
 
 				<div className="max-w-4xl mx-auto">
-					<div className="bg-featured rounded-3xl p-8 md:p-12 shadow-xl border border-border relative overflow-hidden">
+					<div className="bg-featured rounded-3xl p-8 md:p-12 pb-16 md:pb-8 shadow-xl border border-border relative overflow-hidden">
 						{/* Decorative elements */}
 						<div className="absolute top-4 left-4 text-3xl bounce-gentle opacity-50">
 							🎉
@@ -105,6 +105,21 @@ export const PricingSection = () => {
 						</div>
 					</div>
 				</div>
+			</div>
+
+			{/* Wave transition to next section */}
+			<div className="absolute bottom-0 left-0 right-0">
+				<svg
+					viewBox="0 0 1200 200"
+					preserveAspectRatio="none"
+					className="w-full h-32"
+				>
+					<title>Wave transition to next section</title>
+					<path
+						d="M0,100 C300,200 900,0 1200,100 L1200,200 L0,200 Z"
+						fill="hsl(var(--hive))"
+					/>
+				</svg>
 			</div>
 		</section>
 	);

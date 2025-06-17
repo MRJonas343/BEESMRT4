@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 
 import {
 	FeatureSection,
+	Footer,
 	HeroNavbar,
 	HeroSection,
 	PricingSection,
@@ -21,6 +22,7 @@ function RouteComponent() {
 				<VideoSection />
 				<TestimonialsSection />
 				<PricingSection />
+				<Footer />
 			</section>
 		</main>
 	);
