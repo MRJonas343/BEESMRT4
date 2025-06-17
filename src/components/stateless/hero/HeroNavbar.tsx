@@ -21,19 +21,19 @@ export const HeroNavbar = () => {
 	const menuItems = [
 		{
 			label: "Features",
-			href: "#",
+			href: "#features",
 		},
 		{
 			label: "Demo",
-			href: "#",
+			href: "#demo",
 		},
 		{
 			label: "Reviews",
-			href: "#",
+			href: "#testimonials",
 		},
 		{
 			label: "Pricing",
-			href: "#",
+			href: "#pricing",
 		},
 	];
 

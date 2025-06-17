@@ -58,6 +58,10 @@
 /* BeeSmrt Design System - Bee-themed colors and styles */
 
 @layer base {
+	html {
+		scroll-behavior: smooth;
+	}
+
 	:root {
 		--background: 38 98% 92%;
 		--foreground: 25 100% 8%;

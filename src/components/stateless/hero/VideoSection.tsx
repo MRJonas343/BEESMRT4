@@ -2,7 +2,7 @@ import { MainButton } from "@/components/stateful/MainButton";
 
 export const VideoSection = () => {
 	return (
-		<section id="video" className="pt-20 pb-40 bg-background relative">
+		<section id="demo" className="pt-20 pb-40 bg-background relative">
 			<div className="container mx-auto px-4">
 				<div className="text-center mb-16">
 					<div className="inline-flex items-center space-x-3 mb-4">
