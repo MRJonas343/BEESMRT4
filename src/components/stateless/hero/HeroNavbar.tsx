@@ -12,30 +12,29 @@ import {
 import logo from "../../../assets/logo_white.webp";
 import { Image } from "@heroui/react";
 import { MainButton } from "@/components";
-import { useNavigate } from "@tanstack/react-router";
 import { Route as LoginRoute } from "@/routes/_public/login";
+
+const menuItems = [
+	{
+		label: "Features",
+		href: "#features",
+	},
+	{
+		label: "Demo",
+		href: "#demo",
+	},
+	{
+		label: "Reviews",
+		href: "#testimonials",
+	},
+	{
+		label: "Pricing",
+		href: "#pricing",
+	},
+];
 
 export const HeroNavbar = () => {
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
-	const navigate = useNavigate();
-	const menuItems = [
-		{
-			label: "Features",
-			href: "#features",
-		},
-		{
-			label: "Demo",
-			href: "#demo",
-		},
-		{
-			label: "Reviews",
-			href: "#testimonials",
-		},
-		{
-			label: "Pricing",
-			href: "#pricing",
-		},
-	];
 
 	return (
 		<Navbar
@@ -43,7 +42,7 @@ export const HeroNavbar = () => {
 			onMenuOpenChange={setIsMenuOpen}
 			className="bg-transparent"
 			isBlurred={false}
-			shouldHideOnScroll
+			position="static"
 		>
 			<NavbarContent>
 				<NavbarMenuToggle
@@ -72,23 +71,17 @@ export const HeroNavbar = () => {
 				<NavbarItem>
 					<MainButton
 						label="Start Playing"
-						onPress={() => navigate({ to: LoginRoute.to })}
+						href={LoginRoute.to}
+						isLink={true}
 						className="lg:w-40 lg:h-12 lg:text-2xl"
 					/>
 				</NavbarItem>
 			</NavbarContent>
-			<NavbarMenu>
-				{menuItems.map((item, index) => (
+			<NavbarMenu className="backdrop-blur-2xl bg-transparent">
+				{menuItems.map((item) => (
 					<NavbarMenuItem key={`${item.label}`}>
 						<Link
-							className="w-full"
-							color={
-								index === 2
-									? "primary"
-									: index === menuItems.length - 1
-										? "danger"
-										: "foreground"
-							}
+							className="w-full font-['Bebas_Neue'] text-black text-2xl"
 							href={item.href}
 							size="lg"
 						>

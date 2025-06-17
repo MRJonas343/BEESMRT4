@@ -1,4 +1,6 @@
 import { testimonials } from "@/constants";
+import { Text } from "../Text";
+import { WaveTransition } from "../WaveTransition";
 
 export const TestimonialsSection = () => {
 	return (
@@ -7,15 +9,15 @@ export const TestimonialsSection = () => {
 				<div className="text-center mb-16">
 					<div className="inline-flex items-center space-x-3 mb-4">
 						<span className="text-4xl">💬</span>
-						<h2 className="text-4xl md:text-5xl font-bebas font-bold text-gradient">
+						<Text type="h2" className="text-gradient">
 							What Our Users Say
-						</h2>
+						</Text>
 						<span className="text-4xl">💬</span>
 					</div>
-					<p className="text-xl text-gray-900/80 max-w-2xl mx-auto font-['Oswald']">
+					<Text type="p" className="max-w-2xl mx-auto">
 						Don't just take our word for it - hear from our buzzing community of
 						English learners!
-					</p>
+					</Text>
 				</div>
 
 				<div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
@@ -32,12 +34,12 @@ export const TestimonialsSection = () => {
 								<div className="flex items-center space-x-3 mb-4">
 									<div className="text-4xl">{testimonial.avatar}</div>
 									<div>
-										<h3 className="font-['Oswald'] font-bold text-foreground">
+										<Text type="p" className="text-foreground font-bold">
 											{testimonial.name}
-										</h3>
-										<p className="text-sm text-gray-900/80 font-['Oswald']">
+										</Text>
+										<Text type="span" className="text-sm">
 											{testimonial.country}
-										</p>
+										</Text>
 									</div>
 								</div>
 
@@ -67,21 +69,21 @@ export const TestimonialsSection = () => {
 					<div className="bg-card inline-flex items-center space-x-8 bg-card/80 rounded-full px-8 py-4 shadow-lg">
 						<div className="flex items-center space-x-2">
 							<span className="text-2xl">🏆</span>
-							<span className="font-bebas font-semibold text-honey">
+							<Text type="span" className="text-honey font-semibold">
 								10k+ Happy Learners
-							</span>
+							</Text>
 						</div>
 						<div className="flex items-center space-x-2">
 							<span className="text-2xl">⭐</span>
-							<span className="font-bebas font-semibold text-buzz">
+							<Text type="span" className="text-buzz font-semibold">
 								4.9/5 Rating
-							</span>
+							</Text>
 						</div>
 						<div className="flex items-center space-x-2">
 							<span className="text-2xl">🌍</span>
-							<span className="font-bebas font-semibold text-amber">
+							<Text type="span" className="text-amber font-semibold">
 								50+ Countries
-							</span>
+							</Text>
 						</div>
 					</div>
 				</div>
@@ -93,20 +95,7 @@ export const TestimonialsSection = () => {
 				🐝
 			</div>
 
-			{/* Wave transition to next section */}
-			<div className="absolute bottom-0 left-0 right-0">
-				<svg
-					viewBox="0 0 1200 200"
-					preserveAspectRatio="none"
-					className="w-full h-32"
-				>
-					<title>Wave transition to next section</title>
-					<path
-						d="M0,100 C300,200 900,0 1200,100 L1200,200 L0,200 Z"
-						fill="hsl(var(--background))"
-					/>
-				</svg>
-			</div>
+			<WaveTransition fill="hsl(var(--background))" />
 		</section>
 	);
 };

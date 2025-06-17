@@ -1,4 +1,6 @@
 import { features } from "@/constants";
+import { Text } from "../Text";
+import { WaveTransition } from "../WaveTransition";
 
 export const FeatureSection = () => {
 	return (
@@ -7,22 +9,22 @@ export const FeatureSection = () => {
 				<div className="text-center mb-16">
 					<div className="inline-flex items-center space-x-3 mb-4">
 						<span className="text-4xl">🍯</span>
-						<h2 className="text-4xl md:text-5xl font-bebas font-bold text-gradient">
+						<Text type="h2" className="text-gradient">
 							DISCOVER THE HONEYCOMB
-						</h2>
+						</Text>
 						<span className="text-4xl">🍯</span>
 					</div>
-					<p className="text-xl text-gray-900/80 max-w-2xl mx-auto font-['Oswald']">
+					<Text type="p" className="max-w-2xl mx-auto">
 						Explore our buzzing features designed to make your English learning
 						journey sweet and effective!
-					</p>
+					</Text>
 				</div>
 
 				<div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
 					{features.map((feature) => (
 						<div
 							key={feature.title}
-							className="group relative bg-card rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 border border-border overflow-hidden"
+							className="group relative bg-card rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 border border-border overflow-hidden hover:bg-amber-100/5"
 						>
 							{/* Honeycomb background pattern */}
 							<div className="absolute top-0 right-0 w-16 h-16 bg-honey/40 honeycomb transform rotate-12 -translate-y-2 translate-x-2" />
@@ -32,13 +34,14 @@ export const FeatureSection = () => {
 									{feature.icon}
 								</div>
 
-								<h3 className="text-xl font-['Oswald'] font-semibold text-foreground mb-3 group-hover:text-honey transition-colors">
+								<Text
+									type="h3"
+									className="mb-3 group-hover:text-amber-400 transition-colors"
+								>
 									{feature.title}
-								</h3>
+								</Text>
 
-								<p className=" leading-relaxed font-['Oswald'] text-gray-900/80">
-									{feature.description}
-								</p>
+								<Text type="span">{feature.description}</Text>
 							</div>
 
 							{/* Hover effect */}
@@ -56,20 +59,7 @@ export const FeatureSection = () => {
 				</div>
 			</div>
 
-			{/* Wave transition to next section */}
-			<div className="absolute bottom-0 left-0 right-0">
-				<svg
-					viewBox="0 0 1200 200"
-					preserveAspectRatio="none"
-					className="w-full h-32"
-				>
-					<title>Wave transition to next section</title>
-					<path
-						d="M0,100 C300,200 900,0 1200,100 L1200,200 L0,200 Z"
-						fill="hsl(var(--background))"
-					/>
-				</svg>
-			</div>
+			<WaveTransition fill="hsl(var(--background))" />
 		</section>
 	);
 };

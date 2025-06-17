@@ -1,3 +1,6 @@
+import { Text } from "../Text";
+import { WaveTransition } from "../WaveTransition";
+
 export const WhyBeeSmrt = () => {
 	return (
 		<section className="pt-10 pb-36 bg-background relative font-['oswald']">
@@ -5,9 +8,9 @@ export const WhyBeeSmrt = () => {
 				<div className="text-center mb-16">
 					<div className="inline-flex items-center space-x-2 mb-4">
 						<span className="text-4xl">🌟</span>
-						<h2 className="text-4xl md:text-5xl font-['Bebas_Neue'] font-bold text-gradient">
+						<Text type="h2" className="text-gradient">
 							Why BeeSmrt Is Right for You
-						</h2>
+						</Text>
 						<span className="text-4xl ">🌟</span>
 					</div>
 				</div>
@@ -70,20 +73,7 @@ export const WhyBeeSmrt = () => {
 				</div>
 			</div>
 
-			{/* Wave transition to next section */}
-			<div className="absolute bottom-0 left-0 right-0">
-				<svg
-					viewBox="0 0 1200 200"
-					preserveAspectRatio="none"
-					className="w-full h-32"
-				>
-					<title>Wave transition to feature section</title>
-					<path
-						d="M0,100 C300,200 900,0 1200,100 L1200,200 L0,200 Z"
-						fill="hsl(49, 100%, 93%)"
-					/>
-				</svg>
-			</div>
+			<WaveTransition fill="hsl(49, 100%, 93%)" />
 		</section>
 	);
 };

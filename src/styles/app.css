@@ -130,6 +130,10 @@
 		font-family: "Bebas Neue", sans-serif;
 	}
 
+	.bg-card\/50 {
+		background-color: hsl(var(--card) / 0.5);
+	}
+
 	.font-oswald {
 		font-family: "Oswald", sans-serif;
 	}
@@ -303,6 +307,33 @@
 		color: hsl(var(--honey));
 	}
 
+	.bg-honey {
+		background-color: hsl(var(--honey));
+	}
+
+	.bg-amber {
+		background-color: hsl(var(--amber));
+	}
+
+	.bg-golden {
+		background-color: hsl(var(--golden));
+	}
+
+	.bg-buzz {
+		background-color: hsl(var(--buzz));
+	}
+
+	.bg-hive {
+		background-color: hsl(var(--hive));
+	}
+
+	.bg-nectar {
+		background-color: hsl(var(--nectar));
+	}
+
+	.bg-foreground {
+		background-color: hsl(var(--foreground));
+	}
 
 
 }

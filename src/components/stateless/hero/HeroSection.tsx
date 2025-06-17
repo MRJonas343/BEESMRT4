@@ -1,6 +1,8 @@
-import { Link } from "@heroui/react";
 import { MainButton } from "@/components/stateful/MainButton";
 import { IoLogoGameControllerB } from "react-icons/io";
+import { Route as LoginRoute } from "@/routes/_public/login";
+import { Text } from "../Text";
+import { WaveTransition } from "../WaveTransition";
 
 export const HeroSection = () => {
 	return (
@@ -27,10 +29,10 @@ export const HeroSection = () => {
 			<div className="container mx-auto px-4 py-20 relative z-10 max-w-7xl">
 				<div className="grid lg:grid-cols-2 gap-8 xl:gap-12 items-center min-h-[80vh] max-w-7xl mx-auto">
 					<div className="text-center lg:text-left">
-						<h1 className="text-5xl md:text-7xl font-['Bebas_Neue'] font-bold text-hive mb-6 leading-tight">
+						<Text type="h1" className="text-black">
 							Learn English with
 							<span className="text-gradient block">BeeSmrt!</span>
-						</h1>
+						</Text>
 
 						<p className="text-xl md:text-2xl text-gray-900/80 text-hive/80 mb-8 leading-relaxed font-['Oswald']">
 							Immerse yourself in an engaging English learning experience with
@@ -38,32 +40,35 @@ export const HeroSection = () => {
 							language.
 						</p>
 
-						<Link href="/login">
-							<MainButton
-								icon={
-									<IoLogoGameControllerB
-										size={32}
-										className="mr-1 lg:text-4xl xl:text-5xl"
-									/>
-								}
-								label="Start Playing"
-								onPress={() => {}}
-								className="lg:w-48 lg:h-14 lg:text-2xl"
-							/>
-						</Link>
+						<MainButton
+							icon={
+								<IoLogoGameControllerB
+									size={32}
+									className="mr-1 lg:text-4xl xl:text-5xl"
+								/>
+							}
+							isLink={true}
+							href={LoginRoute.to}
+							label="Start Playing"
+							className="lg:w-48 lg:h-14 lg:text-2xl"
+						/>
 
 						<div className="mt-8 flex items-center justify-center lg:justify-start space-x-4 text-hive/60">
 							<div className="flex items-center space-x-2">
-								<span className="text-2xl lg:text-3xl xl:text-4xl">🎯</span>
-								<span className="font-medium font-['Oswald'] text-gray-900/80">
-									Gamified Learning
+								<span className="text-2xl lg:text-3xl xl:text-4xl hover:scale-125 hover:rotate-12 transition-all duration-300">
+									🎯
 								</span>
+								<Text type="span" className="font-medium">
+									Gamified Learning
+								</Text>
 							</div>
 							<div className="flex items-center space-x-2">
-								<span className="text-2xl lg:text-3xl xl:text-4xl">🎲</span>
-								<span className="font-medium font-['Oswald'] text-gray-900/80">
-									Variety of Games
+								<span className="text-2xl lg:text-3xl xl:text-4xl hover:scale-125 hover:rotate-12 transition-all duration-300">
+									🎲
 								</span>
+								<Text type="span" className="font-medium">
+									Variety of Games
+								</Text>
 							</div>
 						</div>
 					</div>
@@ -94,20 +99,7 @@ export const HeroSection = () => {
 					</div>
 				</div>
 			</div>
-			{/* Wave transition to next section */}
-			<div className="absolute bottom-0 left-0 right-0">
-				<svg
-					viewBox="0 0 1200 200"
-					preserveAspectRatio="none"
-					className="w-full h-32"
-				>
-					<title>Wave transition decoration</title>
-					<path
-						d="M0,100 C300,200 900,0 1200,100 L1200,200 L0,200 Z"
-						fill="hsl(var(--background))"
-					/>
-				</svg>
-			</div>
+			<WaveTransition fill="hsl(var(--background))" />
 		</section>
 	);
 };
