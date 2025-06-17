@@ -1,1 +1,3 @@
-export * from './GameModesList';
+export * from "./FeaturesInHero";
+export * from "./GameModesList";
+export * from "./Testimonials";

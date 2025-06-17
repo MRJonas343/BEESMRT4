@@ -17,7 +17,7 @@ import { useAuthUser } from "@/hooks";
 import { FaEye, FaEyeSlash, FaMicrosoft } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import { useState } from "react";
-import { MainLayout, Text } from "@/components";
+import { Text } from "@/components";
 import logo from "@/assets/logo_white.webp";
 
 function RouteComponent() {
@@ -43,7 +43,7 @@ function RouteComponent() {
 	const navigate = useNavigate();
 
 	return (
-		<MainLayout>
+		<>
 			{/* Header */}
 			<Navbar isBlurred={false} className="bg-transparent py-4">
 				<div className="flex items-center">
@@ -206,7 +206,7 @@ function RouteComponent() {
 					</CardBody>
 				</Card>
 			</div>
-		</MainLayout>
+		</>
 	);
 }
 

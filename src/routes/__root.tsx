@@ -7,7 +7,7 @@ import {
 import { TanStackRouterDevtools } from "@tanstack/react-router-devtools";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import type { QueryClient } from "@tanstack/react-query";
-import appCss from "@/styles/app.css?url";
+import appCss from "../styles/app.css?url";
 import { DefaultCatchBoundary, NotFound, Providers } from "@/components";
 import { fetchSessionFn } from "@/utils/fetch-session";
 //import { seo } from '~/utils/seo'
@@ -34,26 +34,25 @@ export const Route = createRootRouteWithContext<{
 
 		links: [
 			//{ rel: "stylesheet", href: appCss },
-			{
-				rel: "apple-touch-icon",
-				sizes: "180x180",
-				href: "/apple-touch-icon.png",
-			},
-			{
-				rel: "icon",
-				type: "image/png",
-				sizes: "32x32",
-				href: "/favicon-32x32.png",
-			},
-			{
-				rel: "icon",
-				type: "image/png",
-
-				sizes: "16x16",
-				href: "/favicon-16x16.png",
-			},
-			//{ rel: "manifest", href: "/site.webmanifest", color: "#fffff" },
-			{ rel: "icon", href: "/favicon.ico" },
+			// {
+			// 	rel: "apple-touch-icon",
+			// 	sizes: "180x180",
+			// 	href: "/apple-touch-icon.png",
+			// },
+			// {
+			// 	rel: "icon",
+			// 	type: "image/png",
+			// 	sizes: "32x32",
+			// 	href: "/favicon-32x32.png",
+			// },
+			// {
+			// 	rel: "icon",
+			// 	type: "image/png",
+			// 	sizes: "16x16",
+			// 	href: "/favicon-16x16.png",
+			// },
+			// //{ rel: "manifest", href: "/site.webmanifest", color: "#fffff" },
+			// { rel: "icon", href: "/favicon.ico" },
 			{ rel: "stylesheet", href: appCss },
 		],
 	}),
