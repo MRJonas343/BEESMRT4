@@ -13,7 +13,7 @@ export const GameCard = ({
 	};
 
 	return (
-		<div className="flex flex-col md:flex-row rounded-2xl shadow-lg mb-8 overflow-hidden border border-yellow-200">
+		<div className="hover:scale-105 transition-transform flex flex-col md:flex-row rounded-2xl shadow-lg mb-8 overflow-hidden border border-yellow-200">
 			<div className="flex items-center justify-center bg-background p-8 md:p-6 md:w-40">
 				<Image
 					src={game.image}

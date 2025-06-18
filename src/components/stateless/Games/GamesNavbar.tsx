@@ -47,7 +47,7 @@ export const GamesNavbar = () => {
 							isBordered
 							as="button"
 							className="transition-transform"
-							color="primary"
+							color="secondary"
 							name={session?.user?.name ?? ""}
 							size="sm"
 							src={session?.user?.image ?? ""}
