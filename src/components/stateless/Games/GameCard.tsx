@@ -6,6 +6,12 @@ export const GameCard = ({
 	game,
 	onPlay,
 }: { game: (typeof games)[0]; onPlay: () => void }) => {
+	const levelColors: Record<string, string> = {
+		Beginner: "bg-yellow-100 text-yellow-700",
+		Intermediate: "bg-orange-100 text-orange-700",
+		Advanced: "bg-red-100 text-red-700",
+	};
+
 	return (
 		<div className="flex flex-col md:flex-row rounded-2xl shadow-lg mb-8 overflow-hidden border border-yellow-200">
 			<div className="flex items-center justify-center bg-background p-8 md:p-6 md:w-40">
@@ -27,7 +33,9 @@ export const GameCard = ({
 					<span className="flex items-center bg-yellow-100 text-yellow-700 text-xs font-semibold px-2 py-1 rounded-full">
 						<span className="mr-1">★</span> {game.progress}/{game.total}
 					</span>
-					<span className="bg-gray-100 text-gray-700 text-xs font-semibold px-2 py-1 rounded-full">
+					<span
+						className={`bg-gray-100 text-gray-700 text-xs font-semibold px-2 py-1 rounded-full ${levelColors[game.level] || ""}`}
+					>
 						{game.level}
 					</span>
 				</div>
