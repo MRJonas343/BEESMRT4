@@ -1,30 +1,41 @@
 import { createFileRoute } from "@tanstack/react-router";
-import memoryGame from "../../assets/memoryGame.webp";
-import hangmanGame from "../../assets/hangmanImg.webp";
-
 import { useNavigate } from "@tanstack/react-router";
-
-const games = [
-	{
-		name: "Memory Game",
-		description: "A game of memory",
-		game: "MemoryGame",
-		image: memoryGame,
-		link: "/game/configs/MemoryGame",
-	},
-	{
-		name: "Hangman Game",
-		description: "A game of hangman",
-		game: "HangmanGame",
-		image: hangmanGame,
-		link: "/game/configs/HangmanGame",
-	},
-];
+import { Text, GameCard } from "@/components";
+import { games } from "@/constants";
+import { Route as GameConfigRoute } from "./game/configs/$game";
 
 function RouteComponent() {
 	const navigate = useNavigate();
 
-	return <></>;
+	return (
+		<>
+			<Text
+				type="h1"
+				className="px-4 text-black text-center font-['Bebas_Neue'] text-5xl mb-2"
+			>
+				Choose <span className="text-buzz">Your Game</span> 🎮
+			</Text>
+			<Text type="p" className="px-4 text-lg text-center mb-10 text-yellow-900">
+				Learning English has never been this fun!
+			</Text>
+			<div className="px-4">
+				<div className="max-w-3xl mx-auto flex flex-col">
+					{games.map((game) => (
+						<GameCard
+							key={game.name}
+							game={game}
+							onPlay={() =>
+								navigate({
+									to: GameConfigRoute.to,
+									params: { game: game.href },
+								})
+							}
+						/>
+					))}
+				</div>
+			</div>
+		</>
+	);
 }
 
 export const Route = createFileRoute("/_private/GameMenu")({

@@ -12,9 +12,9 @@ export const Route = createFileRoute("/_private")({
 
 function RouteComponent() {
 	return (
-		<>
+		<section className="gradient-hero min-h-screen">
 			<GamesNavbar />
 			<Outlet />
-		</>
+		</section>
 	);
 }

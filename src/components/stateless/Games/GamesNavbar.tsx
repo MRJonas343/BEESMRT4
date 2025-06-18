@@ -62,6 +62,7 @@ export const GamesNavbar = () => {
 							as={"div"}
 							key="signed-in-as"
 							className="h-10 gap-2 text-red-300 opacity-100"
+							textValue={session?.user?.name ?? ""}
 						>
 							<Text type="span" className="text-medium font-semibold">
 								Signed in as{" "}
@@ -70,24 +71,29 @@ export const GamesNavbar = () => {
 								{session?.user?.name ?? ""}
 							</Text>
 						</DropdownItem>
-						<DropdownItem key="profile" href={DashboardRoute.to}>
+						<DropdownItem
+							key="profile"
+							href={DashboardRoute.to}
+							textValue="Profile"
+						>
 							<Text type="span">🙍‍♂️ Profile</Text>
 						</DropdownItem>
-						<DropdownItem key="rankings">
+						<DropdownItem key="rankings" textValue="Rankings">
 							<Text type="span">🏆 Rankings</Text>
 						</DropdownItem>
-						<DropdownItem key="pro" className="">
+						<DropdownItem key="pro" className="" textValue="BEESMRT PRO">
 							<Text type="span">💰 BEESMRT PRO</Text>
 						</DropdownItem>
-						<DropdownItem key="builder" className="">
+						<DropdownItem key="builder" className="" textValue="Builder">
 							<Text type="span">🛠️ Builder</Text>
 						</DropdownItem>
-						<DropdownItem key="help" className="">
+						<DropdownItem key="help" className="" textValue="Help & Feedback">
 							<Text type="span">💬 Help & Feedback</Text>
 						</DropdownItem>
 						<DropdownItem
 							key="logout"
 							color="danger"
+							textValue="Log Out"
 							onPress={() => {
 								logOut();
 							}}

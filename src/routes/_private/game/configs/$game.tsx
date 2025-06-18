@@ -12,7 +12,7 @@ import {
 } from "@/components/MemoryGame";
 
 function RouteComponent() {
-	const { game } = useParams({ from: "/game/configs/$game" });
+	const { game } = useParams({ from: "/_private/game/configs/$game" });
 	const { data } = useSuspenseQuery(gameQueryOptions(game));
 	const gameModes = GameModesList[game];
 
@@ -27,7 +27,7 @@ function RouteComponent() {
 		: data;
 
 	return (
-		<div className="min-h-screen bg-gradient-to-b from-purple-600 via-purple-700 to-purple-800 text-white">
+		<>
 			<Header gameName={game} />
 
 			<div className="max-w-4xl mx-auto px-6 pb-8">
@@ -44,7 +44,7 @@ function RouteComponent() {
 					selectedEnglishLevel={selectedEnglishLevel}
 				/>
 			</div>
-		</div>
+		</>
 	);
 }
 
