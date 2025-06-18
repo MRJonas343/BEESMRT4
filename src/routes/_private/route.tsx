@@ -1,4 +1,5 @@
-import { createFileRoute, redirect } from "@tanstack/react-router";
+import { createFileRoute, Outlet, redirect } from "@tanstack/react-router";
+import { GamesNavbar } from "@/components";
 
 export const Route = createFileRoute("/_private")({
 	beforeLoad: async ({ context: { user } }) => {
@@ -6,4 +7,14 @@ export const Route = createFileRoute("/_private")({
 			throw redirect({ to: "/login" });
 		}
 	},
+	component: RouteComponent,
 });
+
+function RouteComponent() {
+	return (
+		<>
+			<GamesNavbar />
+			<Outlet />
+		</>
+	);
+}

@@ -10,6 +10,7 @@ export * from "./stateful/TextInput";
 export * from "./stateful/interfaces/FormValues.inf";
 export * from "./stateful/interfaces/TextInput.Inf";
 export * from "./stateless/Footer";
+export * from "./stateless/Games/GamesNavbar";
 export * from "./stateless/NotFound";
 export * from "./stateless/Text";
 export * from "./stateless/WaveTransition";
