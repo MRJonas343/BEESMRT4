@@ -27,19 +27,20 @@ export const TextInput = <TFormValues extends FieldValues = FieldValues>({
 			type={type}
 			labelPlacement="inside"
 			label={label}
-			variant="flat"
+			variant="bordered"
 			radius="sm"
-			className={`font-['Bebas_Neue'] rounded-md ${className}`}
+			className={`font-['Oswald'] rounded-md ${className}`}
 			description={description}
 			endContent={endContent}
 			isInvalid={isInvalid}
 			errorMessage={isInvalid && errorMessage}
 			{...register(formLabel)}
 			classNames={{
-				input: "font-['Oswald']",
-				label: "font-['Oswald']",
-				inputWrapper:
-					"bg-white border border-gray-500 active:border-blue-500 focus:ring-2 focus:ring-blue-500",
+				inputWrapper: [
+					"border-amber-500",
+					"data-[hover=true]:border-amber-500",
+					"data-[focus=true]:border-amber-500",
+				],
 			}}
 		/>
 	);

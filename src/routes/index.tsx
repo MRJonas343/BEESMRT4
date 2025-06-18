@@ -3,6 +3,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import {
 	FeatureSection,
 	Footer,
+	HeroLayout,
 	HeroNavbar,
 	HeroSection,
 	PricingSection,
@@ -13,7 +14,7 @@ import {
 
 function RouteComponent() {
 	return (
-		<main className="gradient-hero">
+		<HeroLayout>
 			<HeroNavbar />
 			<section className="min-h-screen relative">
 				<HeroSection />
@@ -24,7 +25,7 @@ function RouteComponent() {
 				<PricingSection />
 				<Footer />
 			</section>
-		</main>
+		</HeroLayout>
 	);
 }
 

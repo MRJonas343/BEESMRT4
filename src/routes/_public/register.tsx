@@ -3,7 +3,7 @@ import { Button, Link } from "@heroui/react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { signUpSchema, type SignUpFormData } from "@/schemas";
 import { useForm, type SubmitHandler } from "react-hook-form";
-import { TextInput } from "@/components";
+import { AuthLayout, NavBarAuth, TextInput } from "@/components";
 import { MdEmail, MdPerson } from "react-icons/md";
 import { useSignUpUser } from "@/hooks";
 
@@ -25,7 +25,8 @@ function RouteComponent() {
 	};
 
 	return (
-		<div>
+		<AuthLayout>
+			<NavBarAuth />
 			<h1 className="text-4xl font-bold text-center font-['Bebas_Neue']">
 				Sign Up
 			</h1>
@@ -62,7 +63,7 @@ function RouteComponent() {
 					Already have an account? <Link href="/login">Login</Link>
 				</p>
 			</form>
-		</div>
+		</AuthLayout>
 	);
 }
 

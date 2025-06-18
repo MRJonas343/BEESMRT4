@@ -8,6 +8,7 @@ interface MainButtonProps {
 	className?: string;
 	isLink?: boolean;
 	href?: string;
+	isLoading?: boolean;
 }
 
 export const MainButton = ({
@@ -17,16 +18,18 @@ export const MainButton = ({
 	className,
 	isLink,
 	href,
+	isLoading,
 }: MainButtonProps) => {
 	return (
 		<Button
 			as={isLink ? Link : "button"}
 			href={href}
-			className={`${className} gradient-honey text-lg font-normal font-['Bebas_Neue'] transition-transform duration-200 hover:scale-105 `}
+			className={`gradient-honey text-lg font-normal font-['Bebas_Neue'] transition-transform duration-200 hover:scale-105 ${className}`}
 			variant="shadow"
 			onPress={onPress}
 			startContent={icon}
 			radius="md"
+			isLoading={isLoading}
 		>
 			{label}
 		</Button>

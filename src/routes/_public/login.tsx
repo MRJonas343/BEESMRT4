@@ -1,13 +1,11 @@
-import { createFileRoute, redirect, useNavigate } from "@tanstack/react-router";
+import { createFileRoute, redirect } from "@tanstack/react-router";
 import {
 	Button,
 	Link,
-	Input,
 	Card,
 	CardBody,
 	Divider,
-	Image,
-	Navbar,
+	CardHeader,
 } from "@heroui/react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { loginSchema, type LoginFormData } from "@/schemas";
@@ -17,8 +15,13 @@ import { useAuthUser } from "@/hooks";
 import { FaEye, FaEyeSlash, FaMicrosoft } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import { useState } from "react";
-import { Text } from "@/components";
-import logo from "@/assets/logo_white.webp";
+import {
+	AuthLayout,
+	MainButton,
+	NavBarAuth,
+	Text,
+	TextInput,
+} from "@/components";
 
 function RouteComponent() {
 	const [isVisible, setIsVisible] = useState(false);
@@ -36,70 +39,67 @@ function RouteComponent() {
 	const mutation = useAuthUser();
 
 	const onSubmit: SubmitHandler<LoginFormData> = (data) => {
+		console.log(data);
 		mutation.mutate(data);
 		reset();
 	};
 
-	const navigate = useNavigate();
-
 	return (
-		<>
-			{/* Header */}
-			<Navbar isBlurred={false} className="bg-transparent py-4">
-				<div className="flex items-center">
-					<Image
-						src={logo}
-						alt="BEESMRT Logo"
-						className="h-12 w-auto"
-						onClick={() => navigate({ to: "/" })}
-					/>
-				</div>
-				<Button
-					color="warning"
-					variant="solid"
-					className="bg-[#FFD400] font-['Bebas_Neue'] px-6 text-lg "
-					as={Link}
-					radius="sm"
-					href="/register"
-				>
-					SIGN UP HERE
-				</Button>
-			</Navbar>
-
-			{/* Welcome Message */}
-			<div className="text-center mb-8 px-6">
-				<Text type="h1" className="text-white">
-					WELCOME <span className="text-[#FFD400]">BACK!</span>
-				</Text>
-				<Text type="p" className="text-white">
-					Please enter your email and password to login.
-				</Text>
-			</div>
+		<AuthLayout>
+			<NavBarAuth />
 
 			{/* Login Card */}
-			<div className="flex-1 flex items-start justify-center px-6">
-				<Card className="w-full max-w-md bg-white">
-					<CardBody className="p-8 space-y-6">
-						<h2 className="text-3xl font-bold text-center text-black font-['Bebas_Neue'] mb-6">
-							LOG IN
-						</h2>
+			<div className="flex-1 flex items-center justify-center mx-8 mt-5 lg:mt-10">
+				<Card className="w-full max-w-xl bg-white">
+					<CardHeader className="flex flex-col items-center justify-center pt-10">
+						<Text
+							type="h1"
+							className="text-black text-center font-['Bebas_Neue']"
+						>
+							WELCOME <span className="text-gradient">BACK!</span>
+						</Text>
+						<Text type="p" className="text-black text-center">
+							Please enter your credentials to start playing
+						</Text>
+					</CardHeader>
+					<CardBody className="pb-8 px-8 space-y-6">
+						{/* Social Login Buttons First */}
+						<div className="space-y-3">
+							<Button
+								variant="bordered"
+								radius="sm"
+								className="w-full border-gray-300 text-black hover:bg-gray-50 font-['Oswald'] text-lg py-6"
+								startContent={<FcGoogle className="text-xl" />}
+							>
+								Continue with Google
+							</Button>
 
-						{/* Form with only email, password, and submit button */}
-						<form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-							{/* Email Input */}
+							<Button
+								variant="bordered"
+								radius="sm"
+								className="w-full border-gray-300 text-black hover:bg-gray-50 font-['Oswald'] text-lg py-6"
+								startContent={<FaMicrosoft className="text-xl text-blue-600" />}
+							>
+								Continue with Microsoft
+							</Button>
+						</div>
+
+						{/* Divider */}
+						<div className="flex items-center space-x-4">
+							<Divider className="flex-1" />
+							<Text type="span">Or continue with</Text>
+							<Divider className="flex-1" />
+						</div>
+
+						{/* Credentials Form */}
+						<form className="space-y-6">
 							<div className="space-y-2">
-								<Input
-									{...register("email")}
+								<TextInput
 									type="email"
 									label="Email"
-									variant="underlined"
-									labelPlacement="outside"
-									classNames={{
-										label: "text-black font-semibold text-sm",
-										input: "text-black",
-										inputWrapper:
-											"border-black data-[hover=true]:border-black group-data-[focus=true]:border-black",
-									}}
+									register={register}
+									formLabel="email"
+									errors={errors}
 									autoComplete="email"
 									autoFocus
 								/>
@@ -108,32 +108,27 @@ function RouteComponent() {
 								)}
 							</div>
 
-							{/* Password Input */}
 							<div className="space-y-2">
-								<Input
-									{...register("password")}
+								<TextInput
 									type={isVisible ? "text" : "password"}
 									label="Password"
-									variant="underlined"
-									labelPlacement="outside"
-									classNames={{
-										label: "text-black font-semibold text-sm",
-										input: "text-black",
-										inputWrapper:
-											"border-black data-[hover=true]:border-black group-data-[focus=true]:border-black",
-									}}
+									register={register}
+									formLabel="password"
+									errors={errors}
 									endContent={
-										<button
+										<Button
 											className="focus:outline-none"
 											type="button"
-											onClick={toggleVisibility}
+											isIconOnly
+											onPress={toggleVisibility}
+											variant="light"
 										>
 											{isVisible ? (
-												<FaEyeSlash className="text-black/50" />
+												<FaEyeSlash className="text-black/50" size={25} />
 											) : (
-												<FaEye className="text-black/50" />
+												<FaEye className="text-black/50" size={25} />
 											)}
-										</button>
+										</Button>
 									}
 									autoComplete="current-password"
 								/>
@@ -144,60 +139,29 @@ function RouteComponent() {
 								)}
 							</div>
 
-							{/* Submit Button */}
-							<Button
-								type="submit"
-								className="w-full bg-[#FFD400] hover:bg-[#FFD400]/90 text-black font-bold text-lg py-6 font-['Bebas_Neue']"
-								size="lg"
+							<MainButton
+								label="JOIN NOW!"
+								className="w-full py-6 text-xl lg:text-2xl"
 								isLoading={mutation.isPending}
-							>
-								JOIN NOW!
-							</Button>
+								onPress={handleSubmit(onSubmit)}
+							/>
 						</form>
 
-						{/* Forgot Password - Outside form */}
 						<div className="text-center">
 							<Link
 								href="/forgot-password"
-								className="text-blue-600 text-sm hover:underline"
+								className="text-blue-600 text-sm lg:text-base hover:underline font-['Oswald']"
 							>
 								I forgot my password
 							</Link>
 						</div>
 
-						{/* Divider - Outside form */}
-						<div className="flex items-center space-x-4">
-							<Divider className="flex-1" />
-							<span className="text-gray-500 text-sm">Or</span>
-							<Divider className="flex-1" />
-						</div>
-
-						{/* Social Login Buttons - Outside form */}
-						<div className="space-y-3">
-							<Button
-								variant="bordered"
-								className="w-full border-gray-300 text-black hover:bg-gray-50"
-								startContent={<FcGoogle className="text-xl" />}
-							>
-								Continue with Google
-							</Button>
-
-							<Button
-								variant="bordered"
-								className="w-full border-gray-300 text-black hover:bg-gray-50"
-								startContent={<FaMicrosoft className="text-xl text-blue-600" />}
-							>
-								Continue with Microsoft
-							</Button>
-						</div>
-
-						{/* Sign Up Link - Outside form */}
-						<div className="text-center pt-4">
-							<p className="text-gray-600 text-sm">
+						<div className="text-center">
+							<p className="text-gray-600 text-sm font-['Oswald'] lg:text-base">
 								Don't you already have an account?{" "}
 								<Link
 									href="/register"
-									className="text-blue-600 hover:underline font-semibold"
+									className="text-blue-600 hover:underline font-semibold font-['Oswald'] lg:text-base text-sm"
 								>
 									Create one here
 								</Link>
@@ -206,7 +170,7 @@ function RouteComponent() {
 					</CardBody>
 				</Card>
 			</div>
-		</>
+		</AuthLayout>
 	);
 }
 
