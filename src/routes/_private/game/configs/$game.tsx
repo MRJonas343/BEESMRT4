@@ -48,7 +48,7 @@ function RouteComponent() {
 	);
 }
 
-export const Route = createFileRoute("/game/configs/$game")({
+export const Route = createFileRoute("/_private/game/configs/$game")({
 	component: () => (
 		<Suspense fallback={<div>Loading...</div>}>
 			<RouteComponent />

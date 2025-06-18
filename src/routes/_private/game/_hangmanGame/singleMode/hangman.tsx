@@ -1,7 +1,7 @@
 import { createFileRoute } from '@tanstack/react-router'
 
 export const Route = createFileRoute(
-  '/game/_hangmanGame/singleMode/hangman',
+  '/_private/game/_hangmanGame/singleMode/hangman',
 )({
   component: RouteComponent,
 })

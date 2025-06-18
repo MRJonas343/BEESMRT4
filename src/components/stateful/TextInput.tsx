@@ -37,9 +37,9 @@ export const TextInput = <TFormValues extends FieldValues = FieldValues>({
 			{...register(formLabel)}
 			classNames={{
 				inputWrapper: [
-					"border-amber-500",
-					"data-[hover=true]:border-amber-500",
-					"data-[focus=true]:border-amber-500",
+					"border-gray-300",
+					"data-[hover=true]:border-gray-300",
+					"data-[focus=true]:border-gray-300",
 				],
 			}}
 		/>

@@ -1,6 +1,6 @@
 import { createFileRoute } from '@tanstack/react-router'
 
-export const Route = createFileRoute('/game/_memoryGame/singleMode/memory1vs1')(
+export const Route = createFileRoute('/_private/game/_memoryGame/singleMode/memory1vs1')(
   {
     component: RouteComponent,
   },

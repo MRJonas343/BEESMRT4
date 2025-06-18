@@ -9,6 +9,8 @@ interface MainButtonProps {
 	isLink?: boolean;
 	href?: string;
 	isLoading?: boolean;
+	radius?: "sm" | "md" | "lg" | "full";
+	type?: "button" | "submit" | "reset";
 }
 
 export const MainButton = ({
@@ -19,6 +21,8 @@ export const MainButton = ({
 	isLink,
 	href,
 	isLoading,
+	radius = "md",
+	type = "button",
 }: MainButtonProps) => {
 	return (
 		<Button
@@ -28,8 +32,9 @@ export const MainButton = ({
 			variant="shadow"
 			onPress={onPress}
 			startContent={icon}
-			radius="md"
+			radius={radius}
 			isLoading={isLoading}
+			type={type}
 		>
 			{label}
 		</Button>

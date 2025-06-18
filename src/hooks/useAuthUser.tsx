@@ -12,7 +12,6 @@ export const useAuthUser = () => {
 		mutationFn: async (data: LoginFormData) => {
 			const response = await signIn.email(data, {
 				onError: (error) => {
-					console.log(error);
 					const errorName = getError(error.error.code || "ERR_SERVER_ERROR");
 					toast("Something went wrong", errorName, "error");
 				},
