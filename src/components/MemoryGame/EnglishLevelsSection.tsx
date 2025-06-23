@@ -1,9 +1,10 @@
 import { Button } from "@heroui/react";
+import { Text } from "@/components";
 
 interface EnglishLevelsSectionProps {
 	englishLevels: string[];
-	selectedEnglishLevel: string | null;
-	onLevelSelect: (level: string | null) => void;
+	selectedEnglishLevel: string;
+	onLevelSelect: (level: string) => void;
 }
 
 export function EnglishLevelsSection({
@@ -13,28 +14,14 @@ export function EnglishLevelsSection({
 }: EnglishLevelsSectionProps) {
 	return (
 		<div className="mb-8">
-			<h3 className="text-2xl font-bold text-yellow-300 mb-4">LEVEL</h3>
+			<Text type="h3" className="mb-4 text-2xl font-bold font-['Oswald']">
+				English Level
+			</Text>
 			<div className="flex flex-wrap gap-3 justify-center">
-				{/* All Levels Button */}
-				<Button
-					className={`px-6 py-3 rounded-lg font-bold text-lg min-w-[80px] text-center transition-all ${
-						selectedEnglishLevel === null
-							? "bg-yellow-400 text-black"
-							: "bg-white text-purple-800"
-					}`}
-					onPress={() => onLevelSelect(null)}
-				>
-					ALL
-				</Button>
-
 				{englishLevels.map((level) => (
 					<Button
 						key={level}
-						className={`px-6 py-3 rounded-lg font-bold text-lg min-w-[80px] text-center transition-all ${
-							selectedEnglishLevel === level
-								? "bg-yellow-400 text-black"
-								: "bg-white text-purple-800"
-						}`}
+						className={`${selectedEnglishLevel === level ? "bg-yellow-400 text-black" : "bg-featured"} min-w-[100px] md:min-w-[110px] max-w-[110px] h-12 font-bold text-xl font-['Oswald'] flex flex-col items-center justify-center rounded-xl shadow-lg transition-all hover:scale-105`}
 						onPress={() => onLevelSelect(level)}
 					>
 						{level}

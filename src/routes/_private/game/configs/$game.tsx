@@ -16,22 +16,31 @@ function RouteComponent() {
 	const { data } = useSuspenseQuery(gameQueryOptions(game));
 	const gameModes = GameModesList[game];
 
-	const [selectedEnglishLevel, setSelectedEnglishLevel] = useState<
-		string | null
-	>(null);
+	const [selectedMode, setSelectedMode] = useState(gameModes[0]);
+	const [selectedEnglishLevel, setSelectedEnglishLevel] = useState("A1");
 
 	const englishLevels = ["A1", "A2", "B1", "B2", "C1", "C2"];
 
-	const filteredData = selectedEnglishLevel
+	const filteredLevels = selectedEnglishLevel
 		? data.filter((level) => level.englishLevel === selectedEnglishLevel)
 		: data;
+
+	const handleCategoryClick = (levelName: string) => {
+		console.log(
+			`Selected Mode: ${selectedMode}, English Level: ${selectedEnglishLevel}, Level: ${levelName}`,
+		);
+	};
 
 	return (
 		<>
 			<Header gameName={game} />
 
-			<div className="max-w-4xl mx-auto px-6 pb-8">
-				<GameModesSection gameModes={gameModes} />
+			<div className="max-w-3xl mx-auto px-6 pb-8	">
+				<GameModesSection
+					gameModes={gameModes}
+					selectedMode={selectedMode}
+					onModeSelect={setSelectedMode}
+				/>
 
 				<EnglishLevelsSection
 					englishLevels={englishLevels}
@@ -40,8 +49,8 @@ function RouteComponent() {
 				/>
 
 				<TrophyCategoriesSection
-					filteredData={filteredData}
-					selectedEnglishLevel={selectedEnglishLevel}
+					filteredLevels={filteredLevels}
+					onCategoryClick={handleCategoryClick}
 				/>
 			</div>
 		</>
