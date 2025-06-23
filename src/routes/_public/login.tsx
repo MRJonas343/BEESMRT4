@@ -32,7 +32,6 @@ function RouteComponent() {
 	const mutation = useAuthUser();
 
 	const onSubmit: SubmitHandler<LoginFormData> = (data) => {
-		console.log(data);
 		mutation.mutate(data);
 		reset();
 	};
