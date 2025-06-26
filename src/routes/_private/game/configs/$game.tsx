@@ -10,6 +10,7 @@ import {
 	EnglishLevelsSection,
 	TrophyCategoriesSection,
 } from "@/components/MemoryGame";
+import { Loader } from "@/components";
 
 function RouteComponent() {
 	const { game } = useParams({ from: "/_private/game/configs/$game" });
@@ -59,7 +60,7 @@ function RouteComponent() {
 
 export const Route = createFileRoute("/_private/game/configs/$game")({
 	component: () => (
-		<Suspense fallback={<div>Loading...</div>}>
+		<Suspense fallback={<Loader />}>
 			<RouteComponent />
 		</Suspense>
 	),
@@ -69,8 +70,5 @@ export const Route = createFileRoute("/_private/game/configs/$game")({
 		if (!gameModes) throw redirect({ to: GameMenuRoute.to });
 
 		queryClient.prefetchQuery(gameQueryOptions(game));
-	},
-	errorComponent: ({ error }) => {
-		return <div>Ups, something went wrong, try again later</div>;
 	},
 });

@@ -2,7 +2,7 @@ import { createRouter as createTanStackRouter } from "@tanstack/react-router";
 import { routeTree } from "./routeTree.gen";
 import { QueryClient } from "@tanstack/react-query";
 import { routerWithQueryClient } from "@tanstack/react-router-with-query";
-import { DefaultCatchBoundary, NotFound } from "./components";
+import { DefaultCatchBoundary, Loader, NotFound } from "./components";
 
 export function createRouter() {
 	const queryClient = new QueryClient({
@@ -23,6 +23,7 @@ export function createRouter() {
 			defaultNotFoundComponent: () => <NotFound />,
 			scrollRestoration: true,
 			defaultStructuralSharing: true,
+			defaultPendingComponent: () => <Loader />,
 		}),
 		queryClient,
 	);

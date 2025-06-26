@@ -1,7 +1,11 @@
 export * from "./Footer";
+export * from "./Games/GameCard";
+export * from "./Games/GamesNavbar";
+export * from "./Loader";
 export * from "./NotFound";
 export * from "./Text";
 export * from "./WaveTransition";
+export * from "./auth/NavBarAuth";
 export * from "./hero/FeatureSection";
 export * from "./hero/HeroNavbar";
 export * from "./hero/HeroSection";
@@ -9,4 +13,5 @@ export * from "./hero/PricingSection";
 export * from "./hero/TestimonialsSection";
 export * from "./hero/VideoSection";
 export * from "./hero/WhyBEESMRT";
+export * from "./layouts/AuthLayout";
 export * from "./layouts/HeroLayout";

@@ -12,6 +12,7 @@ export * from "./stateful/interfaces/TextInput.Inf";
 export * from "./stateless/Footer";
 export * from "./stateless/Games/GameCard";
 export * from "./stateless/Games/GamesNavbar";
+export * from "./stateless/Loader";
 export * from "./stateless/NotFound";
 export * from "./stateless/Text";
 export * from "./stateless/WaveTransition";
