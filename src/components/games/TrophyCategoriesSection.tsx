@@ -4,13 +4,13 @@ import beeImg from "@/assets/abeja-team.webp";
 
 interface TrophyCategoriesSectionProps {
 	filteredLevels: LevelType[];
-	onCategoryClick: (levelName: string) => void;
+	onLevelClick: (level: string) => void;
 }
 
 export function TrophyCategoriesSection({
 	filteredLevels,
 
-	onCategoryClick,
+	onLevelClick,
 }: TrophyCategoriesSectionProps) {
 	return (
 		<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -34,7 +34,7 @@ export function TrophyCategoriesSection({
 							key={level.levelName}
 							type="button"
 							className="bg-featured rounded-2xl shadow-md p-6 flex flex-col items-center h-56 transition-all duration-200 hover:scale-105 hover:shadow-xl hover:opacity-90 cursor-pointer w-full"
-							onClick={() => onCategoryClick(level.levelName)}
+							onClick={() => onLevelClick(level.level)}
 						>
 							<div className="flex items-center justify-center w-16 h-16 rounded-full bg-yellow-400 mb-4">
 								<span className="text-yellow-900 text-3xl">🏆</span>

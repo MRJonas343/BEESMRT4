@@ -18,11 +18,11 @@ import { Route as PublicRegisterImport } from './routes/_public/register'
 import { Route as PublicLoginImport } from './routes/_public/login'
 import { Route as PrivateDashboardImport } from './routes/_private/dashboard'
 import { Route as PrivateGameMenuImport } from './routes/_private/GameMenu'
-import { Route as PrivateGameConfigsGameImport } from './routes/_private/game/configs/$game'
-import { Route as PrivateGameMemoryGameSingleModeMemory1vs1Import } from './routes/_private/game/_memoryGame/singleMode/memory1vs1'
-import { Route as PrivateGameMemoryGame1vs1ModeMemoryImport } from './routes/_private/game/_memoryGame/1vs1Mode/memory'
-import { Route as PrivateGameHangmanGameSingleModeHangmanImport } from './routes/_private/game/_hangmanGame/singleMode/hangman'
-import { Route as PrivateGameHangmanGame1vs1ModeHangman1vs1Import } from './routes/_private/game/_hangmanGame/1vs1Mode/hangman1vs1'
+import { Route as PrivateGameConfigsGameImport } from './routes/_private/_game/configs/$game'
+import { Route as PrivateGameMemoryGameSingleLevelImport } from './routes/_private/_game/memoryGame/single/$level'
+import { Route as PrivateGameMemoryGame1vs1LevelImport } from './routes/_private/_game/memoryGame/1vs1/$level'
+import { Route as PrivateGameHangmanGameSingleLevelImport } from './routes/_private/_game/hangmanGame/single/$level'
+import { Route as PrivateGameHangmanGame1vs1LevelImport } from './routes/_private/_game/hangmanGame/1vs1/$level'
 
 // Create/Update Routes
 
@@ -67,36 +67,36 @@ const PrivateGameMenuRoute = PrivateGameMenuImport.update({
 } as any)
 
 const PrivateGameConfigsGameRoute = PrivateGameConfigsGameImport.update({
-  id: '/game/configs/$game',
-  path: '/game/configs/$game',
+  id: '/_game/configs/$game',
+  path: '/configs/$game',
   getParentRoute: () => PrivateRouteRoute,
 } as any)
 
-const PrivateGameMemoryGameSingleModeMemory1vs1Route =
-  PrivateGameMemoryGameSingleModeMemory1vs1Import.update({
-    id: '/game/_memoryGame/singleMode/memory1vs1',
-    path: '/game/singleMode/memory1vs1',
+const PrivateGameMemoryGameSingleLevelRoute =
+  PrivateGameMemoryGameSingleLevelImport.update({
+    id: '/_game/memoryGame/single/$level',
+    path: '/memoryGame/single/$level',
     getParentRoute: () => PrivateRouteRoute,
   } as any)
 
-const PrivateGameMemoryGame1vs1ModeMemoryRoute =
-  PrivateGameMemoryGame1vs1ModeMemoryImport.update({
-    id: '/game/_memoryGame/1vs1Mode/memory',
-    path: '/game/1vs1Mode/memory',
+const PrivateGameMemoryGame1vs1LevelRoute =
+  PrivateGameMemoryGame1vs1LevelImport.update({
+    id: '/_game/memoryGame/1vs1/$level',
+    path: '/memoryGame/1vs1/$level',
     getParentRoute: () => PrivateRouteRoute,
   } as any)
 
-const PrivateGameHangmanGameSingleModeHangmanRoute =
-  PrivateGameHangmanGameSingleModeHangmanImport.update({
-    id: '/game/_hangmanGame/singleMode/hangman',
-    path: '/game/singleMode/hangman',
+const PrivateGameHangmanGameSingleLevelRoute =
+  PrivateGameHangmanGameSingleLevelImport.update({
+    id: '/_game/hangmanGame/single/$level',
+    path: '/hangmanGame/single/$level',
     getParentRoute: () => PrivateRouteRoute,
   } as any)
 
-const PrivateGameHangmanGame1vs1ModeHangman1vs1Route =
-  PrivateGameHangmanGame1vs1ModeHangman1vs1Import.update({
-    id: '/game/_hangmanGame/1vs1Mode/hangman1vs1',
-    path: '/game/1vs1Mode/hangman1vs1',
+const PrivateGameHangmanGame1vs1LevelRoute =
+  PrivateGameHangmanGame1vs1LevelImport.update({
+    id: '/_game/hangmanGame/1vs1/$level',
+    path: '/hangmanGame/1vs1/$level',
     getParentRoute: () => PrivateRouteRoute,
   } as any)
 
@@ -153,39 +153,39 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PublicRegisterImport
       parentRoute: typeof PublicRouteImport
     }
-    '/_private/game/configs/$game': {
-      id: '/_private/game/configs/$game'
-      path: '/game/configs/$game'
-      fullPath: '/game/configs/$game'
+    '/_private/_game/configs/$game': {
+      id: '/_private/_game/configs/$game'
+      path: '/configs/$game'
+      fullPath: '/configs/$game'
       preLoaderRoute: typeof PrivateGameConfigsGameImport
       parentRoute: typeof PrivateRouteImport
     }
-    '/_private/game/_hangmanGame/1vs1Mode/hangman1vs1': {
-      id: '/_private/game/_hangmanGame/1vs1Mode/hangman1vs1'
-      path: '/game/1vs1Mode/hangman1vs1'
-      fullPath: '/game/1vs1Mode/hangman1vs1'
-      preLoaderRoute: typeof PrivateGameHangmanGame1vs1ModeHangman1vs1Import
+    '/_private/_game/hangmanGame/1vs1/$level': {
+      id: '/_private/_game/hangmanGame/1vs1/$level'
+      path: '/hangmanGame/1vs1/$level'
+      fullPath: '/hangmanGame/1vs1/$level'
+      preLoaderRoute: typeof PrivateGameHangmanGame1vs1LevelImport
       parentRoute: typeof PrivateRouteImport
     }
-    '/_private/game/_hangmanGame/singleMode/hangman': {
-      id: '/_private/game/_hangmanGame/singleMode/hangman'
-      path: '/game/singleMode/hangman'
-      fullPath: '/game/singleMode/hangman'
-      preLoaderRoute: typeof PrivateGameHangmanGameSingleModeHangmanImport
+    '/_private/_game/hangmanGame/single/$level': {
+      id: '/_private/_game/hangmanGame/single/$level'
+      path: '/hangmanGame/single/$level'
+      fullPath: '/hangmanGame/single/$level'
+      preLoaderRoute: typeof PrivateGameHangmanGameSingleLevelImport
       parentRoute: typeof PrivateRouteImport
     }
-    '/_private/game/_memoryGame/1vs1Mode/memory': {
-      id: '/_private/game/_memoryGame/1vs1Mode/memory'
-      path: '/game/1vs1Mode/memory'
-      fullPath: '/game/1vs1Mode/memory'
-      preLoaderRoute: typeof PrivateGameMemoryGame1vs1ModeMemoryImport
+    '/_private/_game/memoryGame/1vs1/$level': {
+      id: '/_private/_game/memoryGame/1vs1/$level'
+      path: '/memoryGame/1vs1/$level'
+      fullPath: '/memoryGame/1vs1/$level'
+      preLoaderRoute: typeof PrivateGameMemoryGame1vs1LevelImport
       parentRoute: typeof PrivateRouteImport
     }
-    '/_private/game/_memoryGame/singleMode/memory1vs1': {
-      id: '/_private/game/_memoryGame/singleMode/memory1vs1'
-      path: '/game/singleMode/memory1vs1'
-      fullPath: '/game/singleMode/memory1vs1'
-      preLoaderRoute: typeof PrivateGameMemoryGameSingleModeMemory1vs1Import
+    '/_private/_game/memoryGame/single/$level': {
+      id: '/_private/_game/memoryGame/single/$level'
+      path: '/memoryGame/single/$level'
+      fullPath: '/memoryGame/single/$level'
+      preLoaderRoute: typeof PrivateGameMemoryGameSingleLevelImport
       parentRoute: typeof PrivateRouteImport
     }
   }
@@ -197,24 +197,21 @@ interface PrivateRouteRouteChildren {
   PrivateGameMenuRoute: typeof PrivateGameMenuRoute
   PrivateDashboardRoute: typeof PrivateDashboardRoute
   PrivateGameConfigsGameRoute: typeof PrivateGameConfigsGameRoute
-  PrivateGameHangmanGame1vs1ModeHangman1vs1Route: typeof PrivateGameHangmanGame1vs1ModeHangman1vs1Route
-  PrivateGameHangmanGameSingleModeHangmanRoute: typeof PrivateGameHangmanGameSingleModeHangmanRoute
-  PrivateGameMemoryGame1vs1ModeMemoryRoute: typeof PrivateGameMemoryGame1vs1ModeMemoryRoute
-  PrivateGameMemoryGameSingleModeMemory1vs1Route: typeof PrivateGameMemoryGameSingleModeMemory1vs1Route
+  PrivateGameHangmanGame1vs1LevelRoute: typeof PrivateGameHangmanGame1vs1LevelRoute
+  PrivateGameHangmanGameSingleLevelRoute: typeof PrivateGameHangmanGameSingleLevelRoute
+  PrivateGameMemoryGame1vs1LevelRoute: typeof PrivateGameMemoryGame1vs1LevelRoute
+  PrivateGameMemoryGameSingleLevelRoute: typeof PrivateGameMemoryGameSingleLevelRoute
 }
 
 const PrivateRouteRouteChildren: PrivateRouteRouteChildren = {
   PrivateGameMenuRoute: PrivateGameMenuRoute,
   PrivateDashboardRoute: PrivateDashboardRoute,
   PrivateGameConfigsGameRoute: PrivateGameConfigsGameRoute,
-  PrivateGameHangmanGame1vs1ModeHangman1vs1Route:
-    PrivateGameHangmanGame1vs1ModeHangman1vs1Route,
-  PrivateGameHangmanGameSingleModeHangmanRoute:
-    PrivateGameHangmanGameSingleModeHangmanRoute,
-  PrivateGameMemoryGame1vs1ModeMemoryRoute:
-    PrivateGameMemoryGame1vs1ModeMemoryRoute,
-  PrivateGameMemoryGameSingleModeMemory1vs1Route:
-    PrivateGameMemoryGameSingleModeMemory1vs1Route,
+  PrivateGameHangmanGame1vs1LevelRoute: PrivateGameHangmanGame1vs1LevelRoute,
+  PrivateGameHangmanGameSingleLevelRoute:
+    PrivateGameHangmanGameSingleLevelRoute,
+  PrivateGameMemoryGame1vs1LevelRoute: PrivateGameMemoryGame1vs1LevelRoute,
+  PrivateGameMemoryGameSingleLevelRoute: PrivateGameMemoryGameSingleLevelRoute,
 }
 
 const PrivateRouteRouteWithChildren = PrivateRouteRoute._addFileChildren(
@@ -242,11 +239,11 @@ export interface FileRoutesByFullPath {
   '/dashboard': typeof PrivateDashboardRoute
   '/login': typeof PublicLoginRoute
   '/register': typeof PublicRegisterRoute
-  '/game/configs/$game': typeof PrivateGameConfigsGameRoute
-  '/game/1vs1Mode/hangman1vs1': typeof PrivateGameHangmanGame1vs1ModeHangman1vs1Route
-  '/game/singleMode/hangman': typeof PrivateGameHangmanGameSingleModeHangmanRoute
-  '/game/1vs1Mode/memory': typeof PrivateGameMemoryGame1vs1ModeMemoryRoute
-  '/game/singleMode/memory1vs1': typeof PrivateGameMemoryGameSingleModeMemory1vs1Route
+  '/configs/$game': typeof PrivateGameConfigsGameRoute
+  '/hangmanGame/1vs1/$level': typeof PrivateGameHangmanGame1vs1LevelRoute
+  '/hangmanGame/single/$level': typeof PrivateGameHangmanGameSingleLevelRoute
+  '/memoryGame/1vs1/$level': typeof PrivateGameMemoryGame1vs1LevelRoute
+  '/memoryGame/single/$level': typeof PrivateGameMemoryGameSingleLevelRoute
 }
 
 export interface FileRoutesByTo {
@@ -256,11 +253,11 @@ export interface FileRoutesByTo {
   '/dashboard': typeof PrivateDashboardRoute
   '/login': typeof PublicLoginRoute
   '/register': typeof PublicRegisterRoute
-  '/game/configs/$game': typeof PrivateGameConfigsGameRoute
-  '/game/1vs1Mode/hangman1vs1': typeof PrivateGameHangmanGame1vs1ModeHangman1vs1Route
-  '/game/singleMode/hangman': typeof PrivateGameHangmanGameSingleModeHangmanRoute
-  '/game/1vs1Mode/memory': typeof PrivateGameMemoryGame1vs1ModeMemoryRoute
-  '/game/singleMode/memory1vs1': typeof PrivateGameMemoryGameSingleModeMemory1vs1Route
+  '/configs/$game': typeof PrivateGameConfigsGameRoute
+  '/hangmanGame/1vs1/$level': typeof PrivateGameHangmanGame1vs1LevelRoute
+  '/hangmanGame/single/$level': typeof PrivateGameHangmanGameSingleLevelRoute
+  '/memoryGame/1vs1/$level': typeof PrivateGameMemoryGame1vs1LevelRoute
+  '/memoryGame/single/$level': typeof PrivateGameMemoryGameSingleLevelRoute
 }
 
 export interface FileRoutesById {
@@ -272,11 +269,11 @@ export interface FileRoutesById {
   '/_private/dashboard': typeof PrivateDashboardRoute
   '/_public/login': typeof PublicLoginRoute
   '/_public/register': typeof PublicRegisterRoute
-  '/_private/game/configs/$game': typeof PrivateGameConfigsGameRoute
-  '/_private/game/_hangmanGame/1vs1Mode/hangman1vs1': typeof PrivateGameHangmanGame1vs1ModeHangman1vs1Route
-  '/_private/game/_hangmanGame/singleMode/hangman': typeof PrivateGameHangmanGameSingleModeHangmanRoute
-  '/_private/game/_memoryGame/1vs1Mode/memory': typeof PrivateGameMemoryGame1vs1ModeMemoryRoute
-  '/_private/game/_memoryGame/singleMode/memory1vs1': typeof PrivateGameMemoryGameSingleModeMemory1vs1Route
+  '/_private/_game/configs/$game': typeof PrivateGameConfigsGameRoute
+  '/_private/_game/hangmanGame/1vs1/$level': typeof PrivateGameHangmanGame1vs1LevelRoute
+  '/_private/_game/hangmanGame/single/$level': typeof PrivateGameHangmanGameSingleLevelRoute
+  '/_private/_game/memoryGame/1vs1/$level': typeof PrivateGameMemoryGame1vs1LevelRoute
+  '/_private/_game/memoryGame/single/$level': typeof PrivateGameMemoryGameSingleLevelRoute
 }
 
 export interface FileRouteTypes {
@@ -288,11 +285,11 @@ export interface FileRouteTypes {
     | '/dashboard'
     | '/login'
     | '/register'
-    | '/game/configs/$game'
-    | '/game/1vs1Mode/hangman1vs1'
-    | '/game/singleMode/hangman'
-    | '/game/1vs1Mode/memory'
-    | '/game/singleMode/memory1vs1'
+    | '/configs/$game'
+    | '/hangmanGame/1vs1/$level'
+    | '/hangmanGame/single/$level'
+    | '/memoryGame/1vs1/$level'
+    | '/memoryGame/single/$level'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -301,11 +298,11 @@ export interface FileRouteTypes {
     | '/dashboard'
     | '/login'
     | '/register'
-    | '/game/configs/$game'
-    | '/game/1vs1Mode/hangman1vs1'
-    | '/game/singleMode/hangman'
-    | '/game/1vs1Mode/memory'
-    | '/game/singleMode/memory1vs1'
+    | '/configs/$game'
+    | '/hangmanGame/1vs1/$level'
+    | '/hangmanGame/single/$level'
+    | '/memoryGame/1vs1/$level'
+    | '/memoryGame/single/$level'
   id:
     | '__root__'
     | '/'
@@ -315,11 +312,11 @@ export interface FileRouteTypes {
     | '/_private/dashboard'
     | '/_public/login'
     | '/_public/register'
-    | '/_private/game/configs/$game'
-    | '/_private/game/_hangmanGame/1vs1Mode/hangman1vs1'
-    | '/_private/game/_hangmanGame/singleMode/hangman'
-    | '/_private/game/_memoryGame/1vs1Mode/memory'
-    | '/_private/game/_memoryGame/singleMode/memory1vs1'
+    | '/_private/_game/configs/$game'
+    | '/_private/_game/hangmanGame/1vs1/$level'
+    | '/_private/_game/hangmanGame/single/$level'
+    | '/_private/_game/memoryGame/1vs1/$level'
+    | '/_private/_game/memoryGame/single/$level'
   fileRoutesById: FileRoutesById
 }
 
@@ -358,11 +355,11 @@ export const routeTree = rootRoute
       "children": [
         "/_private/GameMenu",
         "/_private/dashboard",
-        "/_private/game/configs/$game",
-        "/_private/game/_hangmanGame/1vs1Mode/hangman1vs1",
-        "/_private/game/_hangmanGame/singleMode/hangman",
-        "/_private/game/_memoryGame/1vs1Mode/memory",
-        "/_private/game/_memoryGame/singleMode/memory1vs1"
+        "/_private/_game/configs/$game",
+        "/_private/_game/hangmanGame/1vs1/$level",
+        "/_private/_game/hangmanGame/single/$level",
+        "/_private/_game/memoryGame/1vs1/$level",
+        "/_private/_game/memoryGame/single/$level"
       ]
     },
     "/_public": {
@@ -388,24 +385,24 @@ export const routeTree = rootRoute
       "filePath": "_public/register.tsx",
       "parent": "/_public"
     },
-    "/_private/game/configs/$game": {
-      "filePath": "_private/game/configs/$game.tsx",
+    "/_private/_game/configs/$game": {
+      "filePath": "_private/_game/configs/$game.tsx",
       "parent": "/_private"
     },
-    "/_private/game/_hangmanGame/1vs1Mode/hangman1vs1": {
-      "filePath": "_private/game/_hangmanGame/1vs1Mode/hangman1vs1.tsx",
+    "/_private/_game/hangmanGame/1vs1/$level": {
+      "filePath": "_private/_game/hangmanGame/1vs1/$level.tsx",
       "parent": "/_private"
     },
-    "/_private/game/_hangmanGame/singleMode/hangman": {
-      "filePath": "_private/game/_hangmanGame/singleMode/hangman.tsx",
+    "/_private/_game/hangmanGame/single/$level": {
+      "filePath": "_private/_game/hangmanGame/single/$level.tsx",
       "parent": "/_private"
     },
-    "/_private/game/_memoryGame/1vs1Mode/memory": {
-      "filePath": "_private/game/_memoryGame/1vs1Mode/memory.tsx",
+    "/_private/_game/memoryGame/1vs1/$level": {
+      "filePath": "_private/_game/memoryGame/1vs1/$level.tsx",
       "parent": "/_private"
     },
-    "/_private/game/_memoryGame/singleMode/memory1vs1": {
-      "filePath": "_private/game/_memoryGame/singleMode/memory1vs1.tsx",
+    "/_private/_game/memoryGame/single/$level": {
+      "filePath": "_private/_game/memoryGame/single/$level.tsx",
       "parent": "/_private"
     }
   }

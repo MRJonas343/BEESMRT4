@@ -1,35 +1,40 @@
-import { createFileRoute, redirect, useParams } from "@tanstack/react-router";
+import {
+	createFileRoute,
+	redirect,
+	useNavigate,
+	useParams,
+} from "@tanstack/react-router";
 import { Route as GameMenuRoute } from "@/routes/_private/GameMenu";
 import { useSuspenseQuery } from "@tanstack/react-query";
 import { GameModesList } from "@/constants";
 import { gameQueryOptions } from "@/utils";
 import { Suspense, useState } from "react";
+import { EnglishLevels } from "@/interfaces";
 import {
+	Loader,
 	Header,
 	GameModesSection,
 	EnglishLevelsSection,
 	TrophyCategoriesSection,
-} from "@/components/MemoryGame";
-import { Loader } from "@/components";
+} from "@/components";
+import { getGameRoute } from "@/utils/gameRouting";
 
 function RouteComponent() {
-	const { game } = useParams({ from: "/_private/game/configs/$game" });
-	const { data } = useSuspenseQuery(gameQueryOptions(game));
+	const { game } = useParams({ from: "/_private/_game/configs/$game" });
+	const navigate = useNavigate();
 	const gameModes = GameModesList[game];
 
 	const [selectedMode, setSelectedMode] = useState(gameModes[0]);
 	const [selectedEnglishLevel, setSelectedEnglishLevel] = useState("A1");
 
-	const englishLevels = ["A1", "A2", "B1", "B2", "C1", "C2"];
+	const { data: filteredLevels } = useSuspenseQuery(
+		gameQueryOptions(game, selectedEnglishLevel),
+	);
 
-	const filteredLevels = selectedEnglishLevel
-		? data.filter((level) => level.englishLevel === selectedEnglishLevel)
-		: data;
+	const redirectToLevel = (level: string) => {
+		const route = getGameRoute(game, selectedMode);
 
-	const handleCategoryClick = (levelName: string) => {
-		console.log(
-			`Selected Mode: ${selectedMode}, English Level: ${selectedEnglishLevel}, Level: ${levelName}`,
-		);
+		if (route) navigate({ to: route.to, params: { level } });
 	};
 
 	return (
@@ -44,21 +49,21 @@ function RouteComponent() {
 				/>
 
 				<EnglishLevelsSection
-					englishLevels={englishLevels}
+					englishLevels={EnglishLevels}
 					selectedEnglishLevel={selectedEnglishLevel}
 					onLevelSelect={setSelectedEnglishLevel}
 				/>
 
 				<TrophyCategoriesSection
 					filteredLevels={filteredLevels}
-					onCategoryClick={handleCategoryClick}
+					onLevelClick={redirectToLevel}
 				/>
 			</div>
 		</>
 	);
 }
 
-export const Route = createFileRoute("/_private/game/configs/$game")({
+export const Route = createFileRoute("/_private/_game/configs/$game")({
 	component: () => (
 		<Suspense fallback={<Loader />}>
 			<RouteComponent />
