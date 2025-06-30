@@ -7,7 +7,7 @@ import {
 import { Route as GameMenuRoute } from "@/routes/_private/GameMenu";
 import { useSuspenseQuery } from "@tanstack/react-query";
 import { GameModesList } from "@/constants";
-import { gameQueryOptions } from "@/utils";
+import { getLevelsQueryOptions } from "@/utils";
 import { Suspense, useState } from "react";
 import { EnglishLevels } from "@/interfaces";
 import {
@@ -28,7 +28,7 @@ function RouteComponent() {
 	const [selectedEnglishLevel, setSelectedEnglishLevel] = useState("A1");
 
 	const { data: filteredLevels } = useSuspenseQuery(
-		gameQueryOptions(game, selectedEnglishLevel),
+		getLevelsQueryOptions(game, selectedEnglishLevel),
 	);
 
 	const redirectToLevel = (level: string) => {
@@ -74,6 +74,6 @@ export const Route = createFileRoute("/_private/_game/configs/$game")({
 
 		if (!gameModes) throw redirect({ to: GameMenuRoute.to });
 
-		queryClient.prefetchQuery(gameQueryOptions(game));
+		queryClient.prefetchQuery(getLevelsQueryOptions(game));
 	},
 });
