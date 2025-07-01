@@ -1,7 +1,8 @@
-import { getGameLevelQueryOptions } from "@/utils";
-import { useSuspenseQuery } from "@tanstack/react-query";
 import { createFileRoute, redirect, useParams } from "@tanstack/react-router";
+import { MemoryGameBoard } from "../-components/MemoryGameBoardSingle";
 import { Route as GameMenuRoute } from "@/routes/_private/GameMenu";
+import { useSuspenseQuery } from "@tanstack/react-query";
+import { getGameLevelQueryOptions } from "@/utils";
 import { Suspense } from "react";
 import { Loader } from "@/components";
 
@@ -14,16 +15,7 @@ function RouteComponent() {
 		getGameLevelQueryOptions("MemoryGame", level),
 	);
 
-	return (
-		<div>
-			{levelData.map((level) => (
-				<div key={level.id}>
-					<h1>{level.question}</h1>
-					<img src={level.imgSrc} alt={level.question} />
-				</div>
-			))}
-		</div>
-	);
+	return <MemoryGameBoard levelData={levelData} />;
 }
 
 export const Route = createFileRoute(
