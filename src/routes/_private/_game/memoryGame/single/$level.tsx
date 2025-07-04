@@ -11,11 +11,11 @@ function RouteComponent() {
 		from: "/_private/_game/memoryGame/single/$level",
 	});
 
-	const { data: levelData } = useSuspenseQuery(
+	const { data: levelResponse } = useSuspenseQuery(
 		getGameLevelQueryOptions("MemoryGame", level),
 	);
 
-	return <MemoryGameBoard levelData={levelData} />;
+	return <MemoryGameBoard levelResponse={levelResponse} />;
 }
 
 export const Route = createFileRoute(
