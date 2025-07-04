@@ -1,6 +1,6 @@
-import { createFileRoute, redirect } from "@tanstack/react-router";
-import { useLogOut } from "@/hooks/useLogOut";
 import { Button } from "@heroui/react";
+import { createFileRoute } from "@tanstack/react-router";
+import { useLogOut } from "@/hooks/useLogOut";
 import { useSession } from "@/utils";
 
 function RouteComponent() {

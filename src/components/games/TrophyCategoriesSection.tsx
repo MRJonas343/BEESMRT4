@@ -1,6 +1,6 @@
-import type { LevelType } from "@/interfaces";
 import { Image } from "@heroui/react";
 import beeImg from "@/assets/abeja-team.webp";
+import type { LevelType } from "@/interfaces";
 
 interface TrophyCategoriesSectionProps {
 	filteredLevels: LevelType[];

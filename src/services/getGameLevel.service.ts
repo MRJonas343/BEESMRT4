@@ -1,5 +1,5 @@
 import { beesmartApi } from "@/axios";
-import type { GameName, GameLevelType } from "@/interfaces";
+import type { GameLevelType, GameName } from "@/interfaces";
 
 export const getGameLevel = async <T extends GameName>(
 	game: T,

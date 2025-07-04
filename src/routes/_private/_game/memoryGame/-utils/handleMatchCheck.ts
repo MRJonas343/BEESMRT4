@@ -1,5 +1,5 @@
-import type { Card } from "@/interfaces";
 import type { Dispatch, SetStateAction } from "react";
+import type { Card } from "@/interfaces";
 
 export const handleMatchCheck = (
 	flippedCards: string[],

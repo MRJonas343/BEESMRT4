@@ -1,5 +1,5 @@
-import type { MemoryGameLevel } from "./MemoryGameLevel.interface";
 import type { HangmanGameLevel } from "./HangmanGameLevel.interface";
+import type { MemoryGameLevel } from "./MemoryGameLevel.interface";
 
 export interface GameLevelMap {
 	MemoryGame: MemoryGameLevel[];

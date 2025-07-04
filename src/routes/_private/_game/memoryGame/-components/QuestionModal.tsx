@@ -1,11 +1,11 @@
-import type { Card } from "@/interfaces";
 import {
+	Button,
 	Modal,
+	ModalBody,
 	ModalContent,
 	ModalHeader,
-	ModalBody,
-	Button,
 } from "@heroui/react";
+import type { Card } from "@/interfaces";
 import { shuffleAnswers } from "../-utils";
 
 interface QuestionModalProps {

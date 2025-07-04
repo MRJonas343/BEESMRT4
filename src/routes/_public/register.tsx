@@ -1,14 +1,20 @@
-import { createFileRoute } from "@tanstack/react-router";
-import { Card, CardBody, CardHeader, Divider, Link } from "@heroui/react";
+import {
+	Button,
+	Card,
+	CardBody,
+	CardHeader,
+	Divider,
+	Link,
+} from "@heroui/react";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { signUpSchema, type SignUpFormData } from "@/schemas";
-import { useForm, type SubmitHandler } from "react-hook-form";
-import { MainButton, Text, TextInput } from "@/components";
-import { Button } from "@heroui/react";
-import { MdEmail, MdPerson } from "react-icons/md";
-import { useSignUpUser } from "@/hooks";
+import { createFileRoute } from "@tanstack/react-router";
+import { type SubmitHandler, useForm } from "react-hook-form";
 import { FaMicrosoft } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
+import { MdEmail, MdPerson } from "react-icons/md";
+import { MainButton, Text, TextInput } from "@/components";
+import { useSignUpUser } from "@/hooks";
+import { type SignUpFormData, signUpSchema } from "@/schemas";
 
 function RouteComponent() {
 	const {

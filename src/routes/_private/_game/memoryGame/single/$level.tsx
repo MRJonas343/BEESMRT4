@@ -1,10 +1,10 @@
-import { createFileRoute, redirect, useParams } from "@tanstack/react-router";
-import { MemoryGameBoard } from "../-components/MemoryGameBoardSingle";
-import { Route as GameMenuRoute } from "@/routes/_private/GameMenu";
 import { useSuspenseQuery } from "@tanstack/react-query";
-import { getGameLevelQueryOptions } from "@/utils";
+import { createFileRoute, redirect, useParams } from "@tanstack/react-router";
 import { Suspense } from "react";
 import { Loader } from "@/components";
+import { Route as GameMenuRoute } from "@/routes/_private/GameMenu";
+import { getGameLevelQueryOptions } from "@/utils";
+import { MemoryGameBoard } from "../-components/MemoryGameBoardSingle";
 
 function RouteComponent() {
 	const { level } = useParams({
@@ -31,7 +31,7 @@ export const Route = createFileRoute(
 			await queryClient.ensureQueryData(
 				getGameLevelQueryOptions("MemoryGame", level),
 			);
-		} catch (error) {
+		} catch (_) {
 			throw redirect({ to: GameMenuRoute.to });
 		}
 	},

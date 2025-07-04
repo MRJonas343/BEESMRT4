@@ -1,20 +1,20 @@
-import { createFileRoute } from "@tanstack/react-router";
 import {
 	Button,
-	Link,
 	Card,
 	CardBody,
-	Divider,
 	CardHeader,
+	Divider,
+	Link,
 } from "@heroui/react";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { loginSchema, type LoginFormData } from "@/schemas";
-import { useForm, type SubmitHandler } from "react-hook-form";
-import { useAuthUser } from "@/hooks";
+import { createFileRoute } from "@tanstack/react-router";
+import { useState } from "react";
+import { type SubmitHandler, useForm } from "react-hook-form";
 import { FaEye, FaEyeSlash, FaMicrosoft } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
-import { useState } from "react";
 import { MainButton, Text, TextInput } from "@/components";
+import { useAuthUser } from "@/hooks";
+import { type LoginFormData, loginSchema } from "@/schemas";
 
 function RouteComponent() {
 	const [isVisible, setIsVisible] = useState(false);

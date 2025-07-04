@@ -1,6 +1,5 @@
-import { createFileRoute } from "@tanstack/react-router";
-import { useNavigate } from "@tanstack/react-router";
-import { Text, GameCard } from "@/components";
+import { createFileRoute, useNavigate } from "@tanstack/react-router";
+import { GameCard, Text } from "@/components";
 import { games } from "@/constants";
 import { Route as GameConfigRoute } from "./_game/configs/$game";
 

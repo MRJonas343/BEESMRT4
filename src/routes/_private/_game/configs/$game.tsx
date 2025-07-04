@@ -1,22 +1,22 @@
+import { useSuspenseQuery } from "@tanstack/react-query";
 import {
 	createFileRoute,
 	redirect,
 	useNavigate,
 	useParams,
 } from "@tanstack/react-router";
-import { Route as GameMenuRoute } from "@/routes/_private/GameMenu";
-import { useSuspenseQuery } from "@tanstack/react-query";
-import { GameModesList } from "@/constants";
-import { getLevelsQueryOptions } from "@/utils";
 import { Suspense, useState } from "react";
-import { EnglishLevels } from "@/interfaces";
 import {
-	Loader,
-	Header,
-	GameModesSection,
 	EnglishLevelsSection,
+	GameModesSection,
+	Header,
+	Loader,
 	TrophyCategoriesSection,
 } from "@/components";
+import { GameModesList } from "@/constants";
+import { EnglishLevels } from "@/interfaces";
+import { Route as GameMenuRoute } from "@/routes/_private/GameMenu";
+import { getLevelsQueryOptions } from "@/utils";
 import { getGameRoute } from "@/utils/gameRouting";
 
 function RouteComponent() {

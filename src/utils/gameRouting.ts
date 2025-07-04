@@ -1,7 +1,7 @@
-import { Route as MemoryGameRouteSingle } from "@/routes/_private/_game/memoryGame/single/$level";
-import { Route as MemoryGameRoute1vs1 } from "@/routes/_private/_game/memoryGame/1vs1/$level";
-import { Route as HangmanGameRouteSingle } from "@/routes/_private/_game/hangmanGame/single/$level";
 import { Route as HangmanGameRoute1vs1 } from "@/routes/_private/_game/hangmanGame/1vs1/$level";
+import { Route as HangmanGameRouteSingle } from "@/routes/_private/_game/hangmanGame/single/$level";
+import { Route as MemoryGameRoute1vs1 } from "@/routes/_private/_game/memoryGame/1vs1/$level";
+import { Route as MemoryGameRouteSingle } from "@/routes/_private/_game/memoryGame/single/$level";
 
 // Route mapping for scalable game routing
 const GAME_ROUTES = {

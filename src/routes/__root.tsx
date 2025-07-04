@@ -1,16 +1,16 @@
+import type { QueryClient } from "@tanstack/react-query";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import {
+	createRootRouteWithContext,
 	HeadContent,
 	Outlet,
 	Scripts,
-	createRootRouteWithContext,
 } from "@tanstack/react-router";
 import { TanStackRouterDevtools } from "@tanstack/react-router-devtools";
-import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
-import type { QueryClient } from "@tanstack/react-query";
-import appCss from "../styles/app.css?url";
 import { DefaultCatchBoundary, NotFound, Providers } from "@/components";
 import { fetchSessionFn } from "@/utils/fetch-session";
 import { seo } from "@/utils/seo";
+import appCss from "../styles/app.css?url";
 
 export const Route = createRootRouteWithContext<{
 	queryClient: QueryClient;

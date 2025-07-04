@@ -1,20 +1,21 @@
-import type { Card, GameCardData } from "@/interfaces";
-import { useState, useEffect } from "react";
-import ProgressBar from "@ramonak/react-progress-bar";
 import { Button } from "@heroui/react";
+import ProgressBar from "@ramonak/react-progress-bar";
+import { type KeyboardEvent, useEffect, useState } from "react";
+import type { Card, GameCardData } from "@/interfaces";
 import {
 	createGameCards,
+	handleAnswerSelection,
 	handleCardClick,
 	handleCardKeyDown,
-	handleAnswerSelection,
 	handleMatchCheck,
 } from "../-utils";
 import { QuestionModal } from "./QuestionModal";
-import type { KeyboardEvent } from "react";
 
 export const MemoryGameBoard = ({
 	levelData,
-}: { levelData: GameCardData[] }) => {
+}: {
+	levelData: GameCardData[];
+}) => {
 	const [cards, setCards] = useState<Card[]>(createGameCards(levelData));
 	const [flippedCards, setFlippedCards] = useState<string[]>([]);
 	const [matchedPairs, setMatchedPairs] = useState<number>(0);

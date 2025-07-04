@@ -1,6 +1,6 @@
-import { getGameLevel } from "@/services";
 import { queryOptions } from "@tanstack/react-query";
-import type { GameName, GameLevelType } from "@/interfaces";
+import type { GameLevelType, GameName } from "@/interfaces";
+import { getGameLevel } from "@/services";
 
 export const getGameLevelQueryOptions = <T extends GameName>(
 	game: T,

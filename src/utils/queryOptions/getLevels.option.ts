@@ -1,5 +1,5 @@
-import { getLevels } from "@/services";
 import { queryOptions } from "@tanstack/react-query";
+import { getLevels } from "@/services";
 
 export const getLevelsQueryOptions = (game: string, englishLevel?: string) =>
 	queryOptions({

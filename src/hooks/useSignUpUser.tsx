@@ -1,8 +1,8 @@
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { useNavigate } from "@tanstack/react-router";
 import type { SignUpFormData } from "@/schemas";
 import { authClient, getError, toast } from "@/utils";
 import { fetchSessionFn } from "@/utils/fetch-session";
-import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { useNavigate } from "@tanstack/react-router";
 
 export const useSignUpUser = () => {
 	const navigate = useNavigate();

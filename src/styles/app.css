@@ -1,4 +1,3 @@
-/* Ignore this linter error */
 @import "tailwindcss" source("../");
 @plugin '../../hero.ts';
 

@@ -1,9 +1,9 @@
-import { getGameLevelQueryOptions } from "@/utils";
-import { createFileRoute, redirect, useParams } from "@tanstack/react-router";
-import { Route as GameMenuRoute } from "@/routes/_private/GameMenu";
 import { useSuspenseQuery } from "@tanstack/react-query";
+import { createFileRoute, redirect, useParams } from "@tanstack/react-router";
 import { Suspense } from "react";
 import { Loader } from "@/components";
+import { Route as GameMenuRoute } from "@/routes/_private/GameMenu";
+import { getGameLevelQueryOptions } from "@/utils";
 
 function RouteComponent() {
 	const { level } = useParams({
@@ -39,7 +39,7 @@ export const Route = createFileRoute(
 			await queryClient.ensureQueryData(
 				getGameLevelQueryOptions("HangmanGame", level),
 			);
-		} catch (error) {
+		} catch (_) {
 			throw redirect({ to: GameMenuRoute.to });
 		}
 	},

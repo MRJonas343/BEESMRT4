@@ -1,6 +1,6 @@
-import memoryGame from "../assets/memoryGame.webp";
-import hangmanGame from "../assets/hangmanImg.webp";
 import dragAndDrop from "../assets/dragDropGame.webp";
+import hangmanGame from "../assets/hangmanImg.webp";
+import memoryGame from "../assets/memoryGame.webp";
 import sentenceScramble from "../assets/scrambler.webp";
 
 export const games = [
