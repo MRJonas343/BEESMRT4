@@ -76,14 +76,17 @@ export const MemoryGameBoard = ({
 			<Text type="h2" className="font-['Bebas_Neue'] text-center text-4xl mt-2">
 				Memory <span className="text-buzz">Game</span>
 			</Text>
-			<div className="py-6 max-w-6xl mx-4 bg-card mt-2 rounded-lg shadow-xl border border-gray-200/50">
+			<div className="py-6 max-w-6xl mx-4 bg-card mt-2 rounded-2xl shadow-xl border border-gray-200/50 lg:mx-auto">
 				<div className="mb-6">
 					<div className="flex items-center mb-4">
 						<div className="flex items-center flex-col w-[30%]">
-							<Text type="h3" className="font-['Bebas_Neue']">
+							<Text
+								type="h3"
+								className="font-['Bebas_Neue'] text-buzz md:text-3xl"
+							>
 								{englishLevel}
 							</Text>
-							<Text type="h3" className="font-['Bebas_Neue'] ">
+							<Text type="h3" className="font-['Bebas_Neue'] md:text-3xl">
 								Level {levelNumber}
 							</Text>
 						</div>
@@ -96,17 +99,20 @@ export const MemoryGameBoard = ({
 								height="30px"
 								borderRadius="15px"
 								labelSize="14px"
-								labelColor="#ffffff"
+								labelColor="#D9D9D9"
 								customLabel={`${progress.toFixed(1)}%`}
 								className="font-['Oswald']"
 							/>
 						</div>
 
 						<div className="flex flex-col items-center w-[30%]">
-							<Text type="h3" className="font-['Bebas_Neue']">
+							<Text
+								type="h3"
+								className="font-['Bebas_Neue'] md:text-3xl text-buzz"
+							>
 								{trophies} 🏆
 							</Text>
-							<Text type="h3" className="font-['Bebas_Neue']">
+							<Text type="h3" className="font-['Bebas_Neue'] md:text-3xl">
 								{matchedPairs}/{levelData.length} 🐝
 							</Text>
 						</div>
@@ -132,7 +138,7 @@ export const MemoryGameBoard = ({
 							>
 								{/* Card Back */}
 								<div className="absolute inset-0 w-full h-full backface-hidden rounded-lg bg-[#D9D9D9] flex items-center justify-center">
-									<div className="text-white text-2xl">🐝</div>
+									<div className="text-white text-2xl md:text-4xl">🐝</div>
 								</div>
 
 								{/* Card Front */}
