@@ -1,4 +1,5 @@
 export * from "./auth-client";
+export * from "./confetti-effects";
 export * from "./fetch-session";
 export * from "./gameRouting";
 export * from "./getError";

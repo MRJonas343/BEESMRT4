@@ -7,7 +7,6 @@ export const handleAnswerSelection = (
 	flippedCards: string[],
 	setCards: Dispatch<SetStateAction<Card[]>>,
 	setMatchedPairs: Dispatch<SetStateAction<number>>,
-	setScore: Dispatch<SetStateAction<number>>,
 	setFlippedCards: Dispatch<SetStateAction<string[]>>,
 	setCurrentQuestion: Dispatch<SetStateAction<Card | null>>,
 	setIsModalOpen: Dispatch<SetStateAction<boolean>>,
@@ -25,7 +24,6 @@ export const handleAnswerSelection = (
 			),
 		);
 		setMatchedPairs((prev) => prev + 1);
-		setScore((prev) => prev + 10);
 	} else {
 		// Wrong answer - flip cards back
 		setCards((prev) =>

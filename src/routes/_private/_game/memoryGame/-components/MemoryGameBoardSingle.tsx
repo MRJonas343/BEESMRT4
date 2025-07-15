@@ -1,7 +1,10 @@
 import ProgressBar from "@ramonak/react-progress-bar";
+import { useNavigate } from "@tanstack/react-router";
 import { type KeyboardEvent, useEffect, useState } from "react";
-import { Text } from "@/components";
+import { ModalCompleteLevel, Text } from "@/components";
+import { useCompleteLevel } from "@/hooks";
 import type { Card, GameLevelResponse, MemoryGameLevel } from "@/interfaces";
+import { shootBees } from "@/utils";
 import {
 	createGameCards,
 	handleAnswerSelection,
@@ -10,6 +13,7 @@ import {
 	handleMatchCheck,
 } from "../-utils";
 import { QuestionModal } from "./QuestionModal";
+
 export const MemoryGameBoard = ({
 	levelResponse,
 }: {
@@ -30,8 +34,10 @@ export const MemoryGameBoard = ({
 	const [matchedPairs, setMatchedPairs] = useState<number>(0);
 	const [currentQuestion, setCurrentQuestion] = useState<Card | null>(null);
 	const [isModalOpen, setIsModalOpen] = useState(false);
-	const [score, setScore] = useState(0);
+
 	const [canFlip, setCanFlip] = useState(true);
+	const { mutate: completeLevel } = useCompleteLevel();
+	const navigate = useNavigate();
 
 	useEffect(() => {
 		handleMatchCheck(
@@ -60,7 +66,7 @@ export const MemoryGameBoard = ({
 			flippedCards,
 			setCards,
 			setMatchedPairs,
-			setScore,
+
 			setFlippedCards,
 			setCurrentQuestion,
 			setIsModalOpen,
@@ -70,6 +76,22 @@ export const MemoryGameBoard = ({
 
 	const progress = (matchedPairs / levelData.length) * 100;
 	const isGameComplete = matchedPairs === levelData.length;
+
+	useEffect(() => {
+		if (isGameComplete) {
+			shootBees();
+			if (!levelCompleted)
+				completeLevel({ game: "MemoryGame", level: levelName });
+		}
+	}, [isGameComplete, levelCompleted, levelName, completeLevel]);
+
+	const handleNextLevel = () => {
+		const currentLevelNum = Number.parseInt(levelNumber);
+		const nextLevelNum = currentLevelNum + 1;
+		navigate({
+			to: `/game/memoryGame/single/${englishLevel}Level${nextLevelNum}`,
+		});
+	};
 
 	return (
 		<>
@@ -169,6 +191,12 @@ export const MemoryGameBoard = ({
 					isModalOpen={isModalOpen}
 					currentQuestion={currentQuestion}
 					handleAnswerSelection={onAnswerSelection}
+				/>
+
+				<ModalCompleteLevel
+					isOpen={isGameComplete}
+					levelName={`${englishLevel}Level${levelNumber}`}
+					onNextLevel={handleNextLevel}
 				/>
 			</div>
 		</>
