@@ -43,7 +43,7 @@ export const QuestionModal = ({
 		// Add delay before calling the parent handler
 		setTimeout(() => {
 			handleAnswerSelection(answer);
-		}, 1000);
+		}, 700);
 	};
 
 	return (

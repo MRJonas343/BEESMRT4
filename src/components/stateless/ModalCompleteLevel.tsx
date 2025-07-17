@@ -1,5 +1,4 @@
 import { Modal, ModalBody, ModalContent, ModalHeader } from "@heroui/react";
-import { useNavigate } from "@tanstack/react-router";
 import trophyImg from "@/assets/trofeo.webp";
 import { MainButton, SecondaryButton, Text } from "@/components";
 import { Route as GameMenuRoute } from "@/routes/_private/GameMenu";
@@ -15,12 +14,6 @@ export const ModalCompleteLevel = ({
 	levelName,
 	onNextLevel,
 }: ModalCompleteLevelProps) => {
-	const navigate = useNavigate();
-
-	const handleGoToMenu = () => {
-		navigate({ to: GameMenuRoute.to });
-	};
-
 	return (
 		<Modal
 			isOpen={isOpen}
@@ -54,9 +47,10 @@ export const ModalCompleteLevel = ({
 					</Text>
 					<div className="flex gap-4 w-full">
 						<SecondaryButton
+							isLink={true}
+							href={GameMenuRoute.to}
 							label="Go to Menu"
-							onPress={handleGoToMenu}
-							className="w-full h-12"
+							className="w-full h-12 text-black"
 						/>
 						<MainButton
 							label="Next Level"

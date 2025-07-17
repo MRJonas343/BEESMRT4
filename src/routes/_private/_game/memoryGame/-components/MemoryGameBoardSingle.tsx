@@ -1,10 +1,11 @@
 import ProgressBar from "@ramonak/react-progress-bar";
+import { useSuspenseQuery } from "@tanstack/react-query";
 import { useNavigate } from "@tanstack/react-router";
 import { type KeyboardEvent, useEffect, useState } from "react";
 import { ModalCompleteLevel, Text } from "@/components";
 import { useCompleteLevel } from "@/hooks";
 import type { Card, GameLevelResponse, MemoryGameLevel } from "@/interfaces";
-import { shootBees } from "@/utils";
+import { getGameRoute, getLevelsQueryOptions, shootBees, toast } from "@/utils";
 import {
 	createGameCards,
 	handleAnswerSelection,
@@ -26,16 +27,20 @@ export const MemoryGameBoard = ({
 		data: levelData,
 	} = levelResponse;
 
-	const englishLevel = levelName.split("Level")[0];
-	const levelNumber = levelName.split("Level")[1];
+	const englishLevel = levelResponse.level.split("Level")[0];
+	const levelNumber = levelResponse.level.split("Level")[1];
+
+	const { data: allLevels } = useSuspenseQuery(
+		getLevelsQueryOptions("MemoryGame", englishLevel),
+	);
 
 	const [cards, setCards] = useState<Card[]>(createGameCards(levelData));
 	const [flippedCards, setFlippedCards] = useState<string[]>([]);
 	const [matchedPairs, setMatchedPairs] = useState<number>(0);
 	const [currentQuestion, setCurrentQuestion] = useState<Card | null>(null);
 	const [isModalOpen, setIsModalOpen] = useState(false);
-
 	const [canFlip, setCanFlip] = useState(true);
+
 	const { mutate: completeLevel } = useCompleteLevel();
 	const navigate = useNavigate();
 
@@ -66,7 +71,6 @@ export const MemoryGameBoard = ({
 			flippedCards,
 			setCards,
 			setMatchedPairs,
-
 			setFlippedCards,
 			setCurrentQuestion,
 			setIsModalOpen,
@@ -86,11 +90,27 @@ export const MemoryGameBoard = ({
 	}, [isGameComplete, levelCompleted, levelName, completeLevel]);
 
 	const handleNextLevel = () => {
-		const currentLevelNum = Number.parseInt(levelNumber);
-		const nextLevelNum = currentLevelNum + 1;
-		navigate({
-			to: `/game/memoryGame/single/${englishLevel}Level${nextLevelNum}`,
-		});
+		const nextLevelNum = Number.parseInt(levelNumber) + 1;
+		const nextLevelName = `${englishLevel}Level${nextLevelNum}`;
+
+		const nextLevelExists = allLevels.find(
+			(level) => level.level === nextLevelName,
+		);
+
+		if (nextLevelExists) {
+			navigate({
+				to: getGameRoute("MemoryGame", "SingleMode").to,
+				params: {
+					level: nextLevelName,
+				},
+			});
+			return;
+		}
+		toast(
+			"Congratulations! 🎉",
+			"You've completed all levels for this English level!",
+			"success",
+		);
 	};
 
 	return (

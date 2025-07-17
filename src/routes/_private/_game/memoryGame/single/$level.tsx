@@ -15,7 +15,7 @@ function RouteComponent() {
 		getGameLevelQueryOptions("MemoryGame", level),
 	);
 
-	return <MemoryGameBoard levelResponse={levelResponse} />;
+	return <MemoryGameBoard key={level} levelResponse={levelResponse} />;
 }
 
 export const Route = createFileRoute(
