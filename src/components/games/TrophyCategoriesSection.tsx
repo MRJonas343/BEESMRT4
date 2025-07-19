@@ -9,7 +9,6 @@ interface TrophyCategoriesSectionProps {
 
 export function TrophyCategoriesSection({
 	filteredLevels,
-
 	onLevelClick,
 }: TrophyCategoriesSectionProps) {
 	return (
@@ -33,9 +32,20 @@ export function TrophyCategoriesSection({
 						<button
 							key={level.levelName}
 							type="button"
-							className="bg-featured rounded-2xl shadow-md p-6 flex flex-col items-center h-56 transition-all duration-200 hover:scale-105 hover:shadow-xl hover:opacity-90 cursor-pointer w-full"
+							className={`rounded-2xl shadow-md p-6 flex flex-col items-center h-56 transition-all duration-200 hover:scale-105 hover:shadow-xl hover:opacity-90 cursor-pointer w-full relative ${
+								level.isCompleted
+									? "bg-green-100 border-2 border-green-500"
+									: "bg-featured"
+							}`}
 							onClick={() => onLevelClick(level.level)}
 						>
+							{/* Checkmark for completed levels */}
+							{level.isCompleted && (
+								<div className="absolute top-2 right-2 text-green-600 text-xl">
+									✅
+								</div>
+							)}
+
 							<div className="flex items-center justify-center w-16 h-16 rounded-full bg-yellow-400 mb-4">
 								<span className="text-yellow-900 text-3xl">🏆</span>
 							</div>
@@ -45,8 +55,14 @@ export function TrophyCategoriesSection({
 							</div>
 							<div className="flex-grow" />
 
-							<div className="bg-green-500 text-white text-xs font-bold px-4 py-1 rounded-full shadow">
-								+200 XP
+							<div
+								className={`text-xs font-bold px-4 py-1 rounded-full shadow ${
+									level.isCompleted
+										? "bg-gray-300 text-gray-600 line-through"
+										: "bg-green-500 text-white"
+								}`}
+							>
+								{level.trophies} XP
 							</div>
 						</button>
 					);
