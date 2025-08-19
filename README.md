@@ -1,6 +1,37 @@
-# TanStackBee
+# BEESMRT4 🐝
 
-A modern React application built with TanStack Router, TanStack Query, and Hero UI, featuring authentication, form handling, and a beautiful UI.
+**An engaging English learning platform that makes language education fun through gamification**
+
+BEESMRT4 is a modern web application designed to help users improve their English language skills through interactive games and competitive learning experiences. Built with a bee-themed interface, the platform combines education with entertainment to create an immersive learning environment.
+
+## 🎯 About The Project
+
+BEESMRT4 transforms traditional English learning into an exciting adventure where users can:
+- **Play Interactive Games**: Master vocabulary, grammar, and sentence structure through engaging mini-games
+- **Compete Globally**: Challenge friends and players worldwide in real-time 1v1 English battles
+- **Track Progress**: Level up through structured learning paths with achievements and rewards
+- **Learn at Your Pace**: Choose from different difficulty levels suitable for beginners to advanced learners
+
+The platform features a comprehensive suite of educational games including Memory Match, Hangman, Drag & Drop vocabulary, and Sentence Scramble - all designed to reinforce English language concepts through active participation.
+
+## 🎮 Learning Games & Features
+
+### **Educational Games**
+- **🧠 Memory Game**: Match English words with their definitions or images to strengthen vocabulary retention
+- **🎪 Hangman**: Classic word-guessing game that helps with spelling and vocabulary recognition  
+- **🔄 Drag & Drop**: Interactive vocabulary building by matching words to their corresponding images or meanings
+- **🔤 Sentence Scramble**: Improve grammar and sentence structure by rearranging scrambled sentences
+
+### **Competitive Features**
+- **⚔️ 1v1 Battle Mode**: Real-time competitive matches against other learners worldwide
+- **🏆 Global Leaderboards**: Track your progress and compete with learners from around the globe
+- **🎯 Level Progression**: Structured learning paths from beginner to advanced levels
+- **🏅 Achievement System**: Earn badges, points, and unlock special content as you progress
+
+### **Personalization**
+- **🎨 Profile Customization**: Personalize your avatar and showcase your achievements
+- **📊 Progress Tracking**: Detailed analytics of your learning journey and skill development
+- **🔒 Secure Authentication**: Safe and secure user account management
 
 ## 🚀 Technologies Used
 
@@ -36,11 +67,39 @@ A modern React application built with TanStack Router, TanStack Query, and Hero 
 - **Bebas Neue** - Custom font family
 - **Oswald** - Custom font family
 
+## 🏗️ Architecture Overview
+
+BEESMRT4 follows a modern, scalable architecture designed for performance and maintainability:
+
+### **Frontend Architecture**
+- **Component-Based Design**: Modular React components organized by functionality (games, authentication, UI)
+- **Route-Based Code Splitting**: Automatic code splitting using TanStack Router for optimal loading performance
+- **State Management**: Centralized state management with TanStack Query for server state and local state handling
+- **Type Safety**: Full TypeScript implementation ensuring code reliability and developer experience
+
+### **Project Structure Pattern**
+```
+Feature-Based Organization:
+├── components/
+│   ├── games/           # Game-specific components
+│   ├── stateless/       # Reusable UI components  
+│   └── stateful/        # Interactive components
+├── routes/              # Route definitions and page components
+├── services/            # API integration and business logic
+├── utils/               # Helper functions and utilities
+└── assets/              # Static resources and images
+```
+
+### **Security & Authentication**
+- **Better Auth Integration**: Secure authentication flow with session management
+- **Route Protection**: Protected routes for authenticated game experiences
+- **Secure API Communication**: Axios-based HTTP client with proper error handling
+
 ## 📦 Prerequisites
 
-Before running this project, make sure you have:
-
+Before running BEESMRT4, make sure you have:
 - **Bun** installed (recommended) or **Node.js** (v18 or higher)
+
 - **Git** for version control
 
 ### Installing Bun (Recommended)
@@ -58,8 +117,8 @@ curl -fsSL https://bun.sh/install | bash
 ### 1. Clone the Repository
 
 ```bash
-git clone <repository-url>
-cd TanStackBee
+git clone https://github.com/MRJonas343/BEESMRT4.git
+cd BEESMRT4
 ```
 
 ### 2. Install Dependencies
@@ -136,40 +195,56 @@ npm run start
 ## 📁 Project Structure
 
 ```
-TanStackBee/
+BEESMRT4/
 ├── src/
-│   ├── assets/          # Static assets
-│   ├── axios/           # HTTP client configuration
-│   ├── components/      # Reusable React components
-│   ├── guards/          # Route guards and protection
-│   ├── hooks/           # Custom React hooks
-│   ├── interceptor/     # Request/response interceptors
-│   ├── routes/          # Application routes
-│   ├── schemas/         # Zod validation schemas
-│   ├── services/        # API service functions
-│   ├── store/           # State management
-│   ├── styles/          # Global styles and CSS
-│   └── utils/           # Utility functions
+│   ├── assets/          # Game images and static resources
+│   ├── components/      # React components
+│   │   ├── games/       # Game-specific components (Memory, Hangman, etc.)
+│   │   ├── stateless/   # Reusable UI components
+│   │   └── stateful/    # Interactive components with state
+│   ├── constants/       # Game configurations and feature definitions
+│   ├── hooks/           # Custom React hooks for game logic
+│   ├── routes/          # Application routing and page components
+│   │   ├── _private/    # Protected routes (authenticated games)
+│   │   └── _public/     # Public routes (landing, auth)
+│   ├── schemas/         # Zod validation schemas for forms
+│   ├── services/        # API communication and game services
+│   ├── styles/          # Global CSS and Tailwind configuration
+│   └── utils/           # Helper functions and utilities
 ├── public/
-│   └── fonts/           # Custom font files
-├── package.json         # Dependencies and scripts
-├── tsconfig.json        # TypeScript configuration
-├── biome.json          # Biome linter/formatter config
-├── app.config.ts       # TanStack Start configuration
-├── postcss.config.ts   # PostCSS configuration
-└── hero.ts             # Hero UI plugin configuration
+│   └── fonts/           # Custom font files (Bebas Neue, Oswald)
+├── app.config.ts        # TanStack Start configuration
+├── biome.json          # Code formatting and linting rules
+├── hero.ts             # Hero UI component library configuration
+├── postcss.config.ts   # PostCSS and Tailwind CSS configuration
+└── tsconfig.json       # TypeScript configuration
 ```
 
-## 🎨 Features
+## 🎨 Educational Approach
 
-- **Modern React 19** with latest features
-- **Type-safe routing** with TanStack Router
-- **Server state management** with TanStack Query
-- **Beautiful UI components** with Hero UI
-- **Form handling** with React Hook Form and Zod validation
-- **Authentication** integration with Better Auth
-- **Code quality** with Biome linting and formatting
-- **Custom fonts** and modern styling with Tailwind CSS v4
+BEESMRT4 employs proven pedagogical methods to enhance English language learning:
+
+### **Gamification Theory**
+- **Immediate Feedback**: Instant responses to player actions reinforce correct learning patterns
+- **Progressive Difficulty**: Adaptive challenge levels maintain optimal learning zones
+- **Achievement Systems**: Badges and rewards provide motivation and track progress milestones
+
+### **Cognitive Learning Strategies**
+- **Spaced Repetition**: Games revisit vocabulary and concepts at optimal intervals
+- **Active Recall**: Players actively retrieve information rather than passive recognition
+- **Contextual Learning**: Words and grammar are presented within meaningful contexts
+
+### **Social Learning**
+- **Peer Competition**: 1v1 battles encourage healthy competition and skill development
+- **Global Community**: Leaderboards create a sense of community among learners worldwide
+- **Collaborative Progress**: Shared achievements and social features enhance motivation
+
+## 🎯 Target Audience
+
+- **English Language Learners**: Students of all levels seeking interactive learning experiences
+- **ESL Students**: Non-native speakers looking to improve vocabulary and grammar
+- **Educators**: Teachers seeking engaging supplementary materials for their curriculum
+- **Casual Learners**: Anyone interested in improving English skills through fun, game-based learning
 
 ## 🔧 Development Commands
 
@@ -207,4 +282,4 @@ This project is licensed under the ISC License.
 
 ---
 
-**Built with ❤️ using modern React ecosystem tools.**
+**Built with ❤️ for English language learners worldwide using modern React ecosystem tools.**
